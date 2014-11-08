@@ -93,8 +93,8 @@ var drawTime = []
 var ready1 = []
 ready1[0] = 1
 ready1[1] = false;
-// var ready2 = false;
-var ready2 = true;
+var ready2 = false;
+// var ready2 = true;
 var gameover1 = false;
 
 // function connect() {
