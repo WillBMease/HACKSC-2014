@@ -28,9 +28,9 @@ app.use(express.static('public'));
 app.listen(8888);
 console.log('Listening on port 8888');
 
-
-
-
+process.on('uncaughtException', function (err) {
+    console.log(err);
+}); 
 
 Myo.on('connected', function(){
     console.log('connected!', this.id)
