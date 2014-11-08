@@ -8,7 +8,7 @@ var server = http.createServer(function (request, response) {
 });
 
 app.get('/', function(req, res){
-	res.sendfile('index.htm');
+	res.sendfile('index.html');
 });
 
 // Listen on port 8000, IP defaults to 127.0.0.1
