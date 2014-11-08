@@ -38,6 +38,10 @@ console.log('received')
               // $('#messages').append('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms");
         
         }
+
+        else if (data[0] == 2){
+          console.log(data[1])
+        }
       }
 
 });
