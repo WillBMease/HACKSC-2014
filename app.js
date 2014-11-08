@@ -11,23 +11,33 @@
 //         res.end(data);
 //     });
 //     } 
-//    //  else {
-//    //      var p = __dirname + '/' + req.params.filepath;
-//    //      fs.stat(p, function(err, stats) {
-//    //          if (err) {
-//    //              throw err;
-//    //          }
-//    //      neededstats.push(stats.mtime);
-//    //      neededstats.push(stats.size);
-//    //      res.send(neededstats);
-//    // });
-//    // }
+//     else {
+//         var p = __dirname + '/' + req.params.filepath;
+//         fs.stat(p, function(err, stats) {
+//             if (err) {
+//                 throw err;
+//             }
+//         neededstats.push(stats.mtime);
+//         neededstats.push(stats.size);
+//         res.send(neededstats);
+//    });
+//    }
 
-// }).listen(8888);
+// }).listen(8888, '127.0.0.1');
 // console.log('Server running.');
 
 var express = require('express');
 var app = express();
+
+module.exports = function(config) {
+  config.set({
+    frameworks: ['jasmine'],
+
+    files: [
+      'public/*.js'
+    ]
+  });
+};
 
 app.get('/', function(req, res) {
    res.sendfile('./index.html');
