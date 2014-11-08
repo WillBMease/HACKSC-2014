@@ -28,7 +28,7 @@ var server = http.createServer(function(req, res) {
 });
 
 console.log("Starting web server at " + serverUrl + ":" + port);
-server.listen(port, serverUrl);
+server.listen(port);
 
 
 
