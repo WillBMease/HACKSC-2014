@@ -1,6 +1,6 @@
 
 var Myo = require('myo');
-var myMyo = Myo.create();
+// var myMyo = Myo.create();
 
 var express = require('express');
 var app = express();
