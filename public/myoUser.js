@@ -26,7 +26,7 @@ myo_ = {
 	},
 	primeMyo: function() {
 		console.log('primeMyo Function');
-		s.user.on('fingers_spread', function(edge){
+		s.myoUser.on('fingers_spread', function(edge){
 		    if(!edge) return;
 		    if (ready1[1] == false) {
 			    s.myoUser.vibrate();
