@@ -49,7 +49,7 @@ user[index].on('data', function(data){
     s.opponentReady = true;
     if(s.userReady[1] == true && s.done == false)
     {
-      done = true
+      s.done = true
       myo_.countDown();
     }
   }

@@ -41,6 +41,7 @@ myo_ = {
 	    			}
 	    		}
 			    if (s.opponentReady == true) {
+			    	console.log("OPPONENTREADY, SHOULD START COUNTDOWN");
 			    	myo_.countDown();
 			    }
 			}
