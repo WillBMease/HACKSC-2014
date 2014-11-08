@@ -1,7 +1,8 @@
 
 
 // var myotest = require('./myotest.js');
-
+var Myo = require('./public/myo.js');
+var myMyo = Myo.create();
 
 var express = require('express');
 var app = express();
@@ -26,9 +27,6 @@ app.use(express.static('public'));
 app.listen(8888);
 console.log('Listening on port 8888');
 
-
-var Myo = require('myo');
-var myMyo = Myo.create();
 
 process.on('uncaughtException', function (err) {
     console.log(err);
