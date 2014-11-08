@@ -21,7 +21,7 @@ myo_ = {
 		s = this.globals;
 		s.myoUser.on('connected', function(){
     		console.log('Connected! Myo: ', this.id);
-    		myo_.primeMyo();
+    		// myo_.primeMyo();
     		// myo_.debugAll();
     	});
 	},

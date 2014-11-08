@@ -64,6 +64,7 @@ if (makeNew) {
 for (var i = 1 ; i < userLimit ; i++) {    
     if (user[i] == 0) {
       dataProcess(i, c)
+      myo_.primeMyo();
       i = userLimit
     }
   }
