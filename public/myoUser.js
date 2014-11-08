@@ -21,7 +21,8 @@ myo_ = {
 		s = this.globals;
 		s.myoUser.on('connected', function(){
     		console.log('Connected! Myo: ', this.id);
-    		myo_.primeMyo();
+    		//myo_.primeMyo();
+    		myo_.debugAll;
     	});
 	},
 	primeMyo: function() {
@@ -79,12 +80,16 @@ myo_ = {
 		    }
 		});
 	},
-	debug: function() {
+	debugPoses: function() {
 		s.myoUser.on('pose', function(poseName){
 			console.log(poseName);
 		});
+	},
+	debugAll: function() {
+		s.myoUser.on('imu', function(data){
+			console.log(data);
+		});
 	}
-
 };
 
 myo_.init();
