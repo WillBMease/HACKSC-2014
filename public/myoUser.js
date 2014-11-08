@@ -28,7 +28,7 @@ myo_ = {
 		console.log('primeMyo Function');
 		s.myoUser.on('fingers_spread', function(edge){
 		    if(!edge) return;
-		    if (ready1[1] == false) {
+		    if (s.userReady[1] == false) {
 			    s.myoUser.vibrate();
 			    s.myoUser.zeroOrientation();
 			    console.log("Gun Loaded!");
