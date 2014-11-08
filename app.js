@@ -1,34 +1,58 @@
 
  
-var http = require("http");
-var fs = require('fs');
-var port = 8888;
-// var serverUrl = "127.0.0.1";
-var serverUrl = "54.213.132.53"
-var counter = 0;
+// var http = require("http");
+// var fs = require('fs');
+// var port = 8888;
+// // var serverUrl = "127.0.0.1";
+// var serverUrl = "54.213.132.53"
+// var counter = 0;
 
-var server = http.createServer(function(req, res) {
+// var server = http.createServer(function(req, res) {
 
-  counter++;
-  console.log("Request: " + req.url + " (" + counter + ")");
+//   counter++;
+//   console.log("Request: " + req.url + " (" + counter + ")");
   
-  if(req.url == "index.html") {
+//   // if(req.url == "index.html") {
 
-    fs.readFile("index.html", function(err, text){
-      res.setHeader("Content-Type", "text/html");
-      res.end(text);
+//     fs.readFile("index.html", function(err, text){
+//       res.setHeader("Content-Type", "text/html");
+//       res.end(text);
+//     });
+//     return;
+
+//   // }
+
+//   // res.setHeader("Content-Type", "text/html");
+//   // res.end("<p>Hello World. Request counter: " + counter + ".</p>");
+
+// });
+
+// console.log("Starting web server at " + serverUrl + ":" + port);
+// server.listen(port);
+
+var http = require('http')
+, url  = require('url')
+, fs   = require('fs');
+var neededstats = [];
+//var p = __dirname + '/' + req.params.filepath; //there is some error here you haven't defined req yet
+http.createServer(function (req,res) {
+    if(req.url=='/index.html' || req.url=='/') {
+    fs.readFile('./index.html',function(err,data){
+        res.end(data);
     });
-    return;
+    } else {
+        var p = __dirname + '/' + req.params.filepath;
+        fs.stat(p, function(err, stats) {
+            if (err) {
+                throw err;
+            }
+        neededstats.push(stats.mtime);
+        neededstats.push(stats.size);
+        res.send(neededstats);
+   });
 
-  }
-
-  // res.setHeader("Content-Type", "text/html");
-  // res.end("<p>Hello World. Request counter: " + counter + ".</p>");
-
-});
-
-console.log("Starting web server at " + serverUrl + ":" + port);
-server.listen(port);
+}).listen(8888);
+console.log('Server running.');
 
 
 
