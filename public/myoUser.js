@@ -39,7 +39,7 @@ myo_ = {
 	    				user[i].send(s.userReady)
 	    			}
 	    		}
-			    if (ready2 == true) {
+			    if (s.opponentReady == true) {
 			    	myo_.countDown();
 			    }
 			}
