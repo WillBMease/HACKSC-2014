@@ -22,7 +22,7 @@
 // Stolen from: Node.js for Front-End Developers by Garann Means (p. 9-10) 
  
 var port = 8000;
-var serverUrl = "127.0.0.1";
+var serverUrl = "54.213.132.53";
  
 var http = require("http");
 var path = require("path"); 
