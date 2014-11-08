@@ -33,12 +33,10 @@ user[index].on('data', function(data){
               color = 'red'
               
               $('#messages').empty()
-              $('#messages').css('color', color).text('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms")
-              // $('#messages').append('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms");
-        
+              $('#messages').css('color', color).text('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms")        
         }
       }
-      
+
         else if (data[0] == 2){
           console.log(data[1])
         }
