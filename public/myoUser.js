@@ -11,7 +11,7 @@ myo_ = {
 		myoActive: false,
 		drawTime: [3],
 		userReady: [1, false],
-		opponentReady: true,
+		opponentReady: false,
 		gameover: false,
 		countdown: 5,
 		done: false
@@ -21,8 +21,8 @@ myo_ = {
 		s = this.globals;
 		s.myoUser.on('connected', function(){
     		console.log('Connected! Myo: ', this.id);
-    		//myo_.primeMyo();
-    		myo_.debugAll;
+    		myo_.primeMyo();
+    		// myo_.debugAll();
     	});
 	},
 	primeMyo: function() {
@@ -64,12 +64,13 @@ myo_ = {
 		var s1 = new Date();
 		var startTime = s1.getTime();
 		s.myoUser.on('orientation', function(data){
-		    if(Math.abs(data.x) > s.threshHold && s.gameover == false){
+			var hypot = Math.sqrt(data.x * data.x + data.y * data.y + data.z * data.z);
+		    if(hypot > s.threshHold && s.gameover == false){
 		    	s.gameover = true;
 		    	var e1 = new Date();
 		    	var endTime = e1.getTime();
 		    	s.drawTime[1] = endTime - startTime;
-		    	console.log('X Position: ' + Math.abs(data.x));
+		    	console.log('Position: ' + hypot);
 		        console.log('BANG!');
 		        console.log('Fire Time: ' + s.drawTime[1]);
 		       	for (var i = 0 ; i < 2 ; i++){
@@ -86,8 +87,13 @@ myo_ = {
 		});
 	},
 	debugAll: function() {
+		s.myoUser.on('fingers_spread', function(edge) {
+			s.myoUser.zeroOrientation();
+		});
 		s.myoUser.on('imu', function(data){
-			console.log(data);
+			data = data.orientation;
+			var hypot = Math.sqrt(data.x * data.x + data.y * data.y + data.z * data.z);
+			console.log(hypot);
 		});
 	}
 };
