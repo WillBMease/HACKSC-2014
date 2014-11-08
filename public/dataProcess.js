@@ -45,7 +45,7 @@ user[index].on('data', function(data){
 
       else if (data[0] == 1){       // receiving ready from other player
         ready2 = true;
-        if(ready1 == true && ready2 == true && done == false)
+        if(ready1[1] == true && ready2 == true && done == false)
         {
           done = true
           counter();
