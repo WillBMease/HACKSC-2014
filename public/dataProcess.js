@@ -46,11 +46,11 @@ user[index].on('data', function(data){
 
   // receiving ready from other player
   else if (data[0] == 1){
-    ready2 = true;
-    if(ready1[1] == true && done == false)
+    s.opponentReady = true;
+    if(s.userReady[1] == true && s.done == false)
     {
       done = true
-      counter();
+      myo_.startGame();
       console.log("START!");
     }
   }
