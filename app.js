@@ -21,63 +21,31 @@
 // A very basic web server in node.js
 // Stolen from: Node.js for Front-End Developers by Garann Means (p. 9-10) 
  
-var port = 8000;
-var serverUrl = "54.213.132.53";
- 
 var http = require("http");
-var path = require("path"); 
-var fs = require("fs"); 		
- 
+var fs = require('fs');
+var port = 3000;
+var serverUrl = "127.0.0.1";
+var counter = 0;
+
+var server = http.createServer(function(req, res) {
+
+  counter++;
+  console.log("Request: " + req.url + " (" + counter + ")");
+  
+  if(req.url == "/index.html") {
+
+    fs.readFile("index.html", function(err, text){
+      res.setHeader("Content-Type", "text/html");
+      res.end(text);
+    });
+    return;
+
+  }
+
+  res.setHeader("Content-Type", "text/html");
+  res.end("<p>Hello World. Request counter: " + counter + ".</p>");
+
+});
+
 console.log("Starting web server at " + serverUrl + ":" + port);
- 
-http.createServer( function(req, res) {
- 
-	var now = new Date();
- 
-	var filename = req.url || "index.html";
-	var ext = path.extname(filename);
-	var localPath = __dirname;
-	var validExtensions = {
-		".html" : "text/html",			
-		".js": "application/javascript", 
-		".css": "text/css",
-		".txt": "text/plain",
-		".jpg": "image/jpeg",
-		".gif": "image/gif",
-		".png": "image/png"
-	};
-	var isValidExt = validExtensions[ext];
- 
-	if (isValidExt) {
-		
-		localPath += filename;
-		path.exists(localPath, function(exists) {
-			if(exists) {
-				console.log("Serving file: " + localPath);
-				getFile(localPath, res, ext);
-			} else {
-				console.log("File not found: " + localPath);
-				res.writeHead(404);
-				res.end();
-			}
-		});
- 
-	} else {
-		console.log("Invalid file extension detected: " + ext)
-	}
- 
-}).listen(port, serverUrl);
- 
-function getFile(localPath, res, mimeType) {
-	fs.readFile(localPath, function(err, contents) {
-		if(!err) {
-			res.setHeader("Content-Length", contents.length);
-			res.setHeader("Content-Type", mimeType);
-			res.statusCode = 200;
-			res.end(contents);
-		} else {
-			res.writeHead(500);
-			res.end();
-		}
-	});
-}
+server.listen(port, serverUrl);
