@@ -169,8 +169,8 @@ function callback() {
 	});
 }
 
-myMyo.on('pose', function(poseName){
-			console.log(poseName);
-		})
+// myMyo.on('pose', function(poseName){
+// 			console.log(poseName);
+// 		})
 
 // getReady()
