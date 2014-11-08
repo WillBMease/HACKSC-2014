@@ -32,9 +32,9 @@ process.on('uncaughtException', function (err) {
     console.log(err);
 }); 
 
-// Myo.on('connected', function(){
-//     console.log('connected!', this.id)
-// });
+Myo.on('connected', function(){
+    console.log('connected!', this.id)
+});
 
 // var ready = false;
 

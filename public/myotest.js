@@ -1,10 +1,6 @@
 
 
-Myo.on('connected', function(){
-    console.log('connected!', this.id)
-});
-
-// myMyo.on('connected', function(){
+// Myo.on('connected', function(){
 //     console.log('connected!', this.id)
 // });
 
