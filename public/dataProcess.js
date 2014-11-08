@@ -37,12 +37,11 @@ user[index].on('data', function(data){
               // $('#messages').append('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms");
         
         }
-
+      }
+      
         else if (data[0] == 2){
           console.log(data[1])
         }
-      }
-
 });
           user[index].on('close', function(err){ 
           $('#messages').append('<br>' + user[index].peer + ' has left the chat.'); 
