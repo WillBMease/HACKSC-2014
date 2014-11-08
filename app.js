@@ -22,7 +22,7 @@ http.createServer(function (req,res) {
    });
    }
 
-}).listen(8888,'0.0.0.0');
+}).listen(8888);
 console.log('Server running.');
 
 
