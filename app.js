@@ -3,7 +3,7 @@
 // var myotest = require('./myotest.js');
 var Myo = require('myo');
 var myMyo = Myo.create();
-var test = require('/public/myotest.js')
+var test = require('../public/myotest.js')
 
 var express = require('express');
 var app = express();
