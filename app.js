@@ -1,31 +1,10 @@
-// // Load the http module to create an http server.
-// var http = require('http');
 
-// // Configure our HTTP server to respond with Hello World to all requests.
-// var server = http.createServer(function (request, response) {
-//   response.writeHead(200, {"Content-Type": "text/plain"});
-//   response.end("Hello World\n");
-// });
-
-// app.get('/', function(req, res){
-// 	res.sendfile('index.html');
-// });
-
-// // Listen on port 8000, IP defaults to 127.0.0.1
-// server.listen(8000);
-
-// // Put a friendly message on the terminal
-// console.log("Server running at http://127.0.0.1:8000/");
-
-
-// A very basic web server in node.js
-// Stolen from: Node.js for Front-End Developers by Garann Means (p. 9-10) 
  
 var http = require("http");
 var fs = require('fs');
-var port = 3000;
-// var serverUrl = "127.0.0.1";
-var serverUrl = "54.213.132.53"
+var port = 8888;
+var serverUrl = "127.0.0.1";
+// var serverUrl = "54.213.132.53"
 var counter = 0;
 
 var server = http.createServer(function(req, res) {
@@ -50,3 +29,105 @@ var server = http.createServer(function(req, res) {
 
 console.log("Starting web server at " + serverUrl + ":" + port);
 server.listen(port, serverUrl);
+
+
+
+
+// var express = require('express');
+// var app = express();
+// var http = require('http').Server(app) ;
+// var io = require('socket.io')(http) ;
+// // var ADSR = require('adsr');
+// //var net = require('net') ;
+// //var fs = require('fs');
+// var path = require('path');
+
+// var createUser = require('./users.js');
+// //var webrtc = require('./webrtc.js')
+
+// // var assert = require('assert')
+// // describe('Array', function(){
+// //   describe('#indexOf()', function(){
+// //     it('should return -1 when the value is not present', function(){
+// //       assert.equal(-1, [1,2,3].indexOf(5));
+// //       assert.equal(-1, [1,2,3].indexOf(0));
+// //     })
+// //   })
+// // })
+
+// module.exports = function(config) {
+//   config.set({
+//     frameworks: ['jasmine'],
+
+//     files: [
+//       'public/js/*.js'
+//     ]
+//   });
+// };
+
+// app.use(express.static(path.join(__dirname, 'public')));
+// app.get('/', function(req, res){
+// 	res.sendfile('index.html');
+// });
+
+// // app.get('/', function(req, res){
+// // 	res.sendfile('html/peerjsex.html');
+// // });
+
+// io.on('connection', function(socket){
+// 	console.log('a user connected');
+// 	socket.on('disconnect', function(){
+// 		console.log('user disconnected');
+// 	});
+// 	socket.on('osc on', function(msg){
+// 		io.emit('osc on', msg) ;
+// 		console.log(msg) ;
+// 	});
+// 	socket.on('osc off', function(msg){
+// 		io.emit('osc off', msg) ;
+// 		console.log(msg) ;
+// 	});
+// 		socket.on('sample on', function(msg){
+// 		io.emit('sample on', msg) ;
+// 		console.log(msg) ;
+// 	});
+// 		socket.on('midi on', function(msg){
+// 		io.emit('midi on', msg) ;
+// 		console.log(msg) ;
+// 	});
+// 		socket.on('latency', function(msg){
+// 		io.emit('latency', msg) ;
+// 		console.log(msg) ;
+// 	});
+// 		socket.on('latencySend', function(msg){
+// 		io.emit('latencySend', msg) ;
+// 		console.log(msg) ;
+// 	});
+// 		socket.on('latencyReturn', function(msg){
+// 		io.emit('latencyReturn', msg) ;
+// 		console.log(msg) ;
+// 	});
+// });
+
+// http.listen(8888, function(){
+// 	console.log('listening on *:8888');
+// });
+
+// // var http = require("http");
+
+
+// // var net = require("net");
+
+// // var server=net.createServer(function(socket){
+// //     socket.on('connection',function(socket){
+// //         console.log('socket connection...');
+// //     });
+// //     socket.on('data',function(message){
+// //         console.log('socket message:'+message);
+// //         socket.write('You wrote:'+message); 
+// //         socket.end(); // <-- :)    
+// //     });
+// //     socket.on('error',function(error){
+// //         console.log('error on socket message:'+error);      
+// //     });
+// // }).listen(1024);
