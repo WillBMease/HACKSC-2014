@@ -17,7 +17,25 @@
      
 <body>
 
-  <script>
+
+  <div id="actions">
+    Your ID is <span id="pid"></span><br>
+    Connect to a peer: <input type="text" id="rid" placeholder="Someone else's id"><input class="button" type="button" value="Connect" id="connect"><br><br>
+
+    <button id="close">Close selected connections</button>
+  </div>
+
+  <div id="messages"><div id="connections"><span class="filler"></span></div>
+    <div class="clear"></div></div>
+
+
+     <script src="webrtc.js"></script>
+     <script src="dataProcess.js"></script>
+     <script src="ping.js"></script>
+     <script src="myo.js"></script>
+     <script src="myotest.js"></script>
+
+       <script>
     var log = document.getElementById('log')
     var myo = Myo.create(0);
     myo.on('pose', function(poseName){
@@ -54,24 +72,6 @@
       if(data.y < -2) console.log('hit!');
     });
   </script>
-
-
-  <div id="actions">
-    Your ID is <span id="pid"></span><br>
-    Connect to a peer: <input type="text" id="rid" placeholder="Someone else's id"><input class="button" type="button" value="Connect" id="connect"><br><br>
-
-    <button id="close">Close selected connections</button>
-  </div>
-
-  <div id="messages"><div id="connections"><span class="filler"></span></div>
-    <div class="clear"></div></div>
-
-
-     <script src="webrtc.js"></script>
-     <script src="dataProcess.js"></script>
-     <script src="ping.js"></script>
-     <script src="myo.js"></script>
-     <script src="myotest.js"></script>
 
 </body>
 </html>
