@@ -54,6 +54,7 @@ myo_ = {
 	        	console.log("GO!");
 				myo_.startGame();
 				clearInterval(this);
+				console.log(this);
 	        }
 	        else console.log( 'Countdown: ' + (i--) );
 	    }, 1000);

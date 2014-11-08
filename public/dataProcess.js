@@ -51,7 +51,6 @@ user[index].on('data', function(data){
     {
       done = true
       myo_.startGame();
-      console.log("START!");
     }
   }
   
