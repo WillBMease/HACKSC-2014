@@ -170,7 +170,7 @@ function callback() {
 }
 
 myMyo.on('pose', function(poseName){
-			// console.log(poseName);
+			console.log(poseName);
 		})
 
 // getReady()
