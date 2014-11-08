@@ -3,8 +3,8 @@
 var http = require("http");
 var fs = require('fs');
 var port = 8888;
-var serverUrl = "127.0.0.1";
-// var serverUrl = "54.213.132.53"
+// var serverUrl = "127.0.0.1";
+var serverUrl = "54.213.132.53"
 var counter = 0;
 
 var server = http.createServer(function(req, res) {
