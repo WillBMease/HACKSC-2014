@@ -12,7 +12,7 @@ var server = http.createServer(function(req, res) {
   counter++;
   console.log("Request: " + req.url + " (" + counter + ")");
   
-  if(req.url == "/index.html") {
+  if(req.url == "index.html") {
 
     fs.readFile("index.html", function(err, text){
       res.setHeader("Content-Type", "text/html");
@@ -22,8 +22,8 @@ var server = http.createServer(function(req, res) {
 
   }
 
-  res.setHeader("Content-Type", "text/html");
-  res.end("<p>Hello World. Request counter: " + counter + ".</p>");
+  // res.setHeader("Content-Type", "text/html");
+  // res.end("<p>Hello World. Request counter: " + counter + ".</p>");
 
 });
 
