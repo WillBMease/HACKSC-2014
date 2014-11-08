@@ -9,7 +9,6 @@ var averagecount = 0;
           // Receive the incoming message and play it calling midi function
             
 user[index].on('data', function(data){
-console.log('received')
       if (data[0] == 0){
         if (data[1] == 0){
           data[1] = 1

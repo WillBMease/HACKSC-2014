@@ -45,7 +45,15 @@
 
 var myo = Myo.create(0);
 		myo.on('pose', function(poseName){
-			//console.log(poseName);
+			console.log(poseName);
+			var msg = []
+			msg[0] = 2
+			msg[1] = poseName
+	for (var i = 0 ; i < 4 ; i++){
+		if (user[i] != 0){
+			user[i].send(msg)
+		}
+	}
 		})
 		myo.on('arm_recognized', function(){
 			console.log('good!', this.id);
@@ -59,10 +67,6 @@ var myo = Myo.create(0);
 		myo.on('fist', function(){
 			console.log('BT PLZ');
 			// myo.requestBluetoothStrength();
-			var msg = []
-			msg[0] = 2
-			msg[1] = "fist"
-			user[0].send(msg)
 		})
 		// myo.on('connected', function(){
 		// 	setInterval(function(){
