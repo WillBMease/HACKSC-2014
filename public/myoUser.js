@@ -49,12 +49,11 @@ myo_ = {
 		//change this function to display on screen
 		console.log('countDown Function');
 		var i = s.countdown;
-	    setInterval(function(){
+	    var interval = setInterval(function(){
 	        if (i == 0) {
 	        	console.log("GO!");
 				myo_.startGame();
-				clearInterval(this);
-				console.log(this);
+				clearInterval(interval);
 	        }
 	        else console.log( 'Countdown: ' + (i--) );
 	    }, 1000);
