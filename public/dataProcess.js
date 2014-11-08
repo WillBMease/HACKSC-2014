@@ -50,7 +50,7 @@ user[index].on('data', function(data){
     if(s.userReady[1] == true && s.done == false)
     {
       done = true
-      myo_.startGame();
+      myo_.countDown();
     }
   }
   
