@@ -10,17 +10,18 @@ http.createServer(function (req,res) {
     fs.readFile('./index.html',function(err,data){
         res.end(data);
     });
-    } else {
-        var p = __dirname + '/' + req.params.filepath;
-        fs.stat(p, function(err, stats) {
-            if (err) {
-                throw err;
-            }
-        neededstats.push(stats.mtime);
-        neededstats.push(stats.size);
-        res.send(neededstats);
-   });
-   }
+    } 
+   //  else {
+   //      var p = __dirname + '/' + req.params.filepath;
+   //      fs.stat(p, function(err, stats) {
+   //          if (err) {
+   //              throw err;
+   //          }
+   //      neededstats.push(stats.mtime);
+   //      neededstats.push(stats.size);
+   //      res.send(neededstats);
+   // });
+   // }
 
 }).listen(8888);
 console.log('Server running.');
