@@ -8,11 +8,11 @@
 var express = require('express');
 var app = express();
 
-var http = require('http')
-  , server = http.createServer(app)
+// var http = require('http')
+  // , server = http.createServer(app)
 // var io = require('socket.io').listen(server);
 
-var io = require('socket.io').listen(app.listen(8888));
+// var io = require('socket.io').listen(app.listen(8888));
 
 module.exports = function(config) {
   config.set({
@@ -30,7 +30,7 @@ app.get('/', function(req, res) {
 
 app.use(express.static('public'));
 
-// app.listen(8888);
+app.listen(8888);
 // server.listen(8888)
 console.log('Listening on port 8888');
 
@@ -61,13 +61,13 @@ process.on('uncaughtException', function (err) {
 
 // });
 
-io.sockets.on('connection', function (socket) {
-	console.log(socket)
-    socket.emit('message', { message: 'welcome to the chat' });
-    socket.on('send', function (data) {
-        io.sockets.emit('message', data);
-    });
-});
+// io.sockets.on('connection', function (socket) {
+// 	console.log(socket)
+//     socket.emit('message', { message: 'welcome to the chat' });
+//     socket.on('send', function (data) {
+//         io.sockets.emit('message', data);
+//     });
+// });
 
 // io.sockets.on('connection', function (socket) { // First connection
 // 	// users += 1; // Add 1 to the count
