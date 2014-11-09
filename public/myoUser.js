@@ -141,7 +141,7 @@ myo_ = {
 				   }
 			    }
 			    if(s.myLives > 0 && s.opponentLives > 0) {
-			    	console.log('My Lives:' + s.myLives + ', Opp Lives:' + s.opponentLives)
+			    	console.log('My Lives hi:' + s.myLives + ', Opp Lives:' + s.opponentLives)
 			    	myo_.endSequence();
 			    } else {
 					if(s.myLives > 0) console.log("you won!");
