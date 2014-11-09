@@ -44,7 +44,7 @@ function getLocalVideo() {
 
     console.log("Local video streaming");
     var styler = "'width: 100px;'"
-    $('#videos').append("<video id='" + peer.id + "' autoplay muted:'false' volume:'0' style="+styler+"></video><br>");
+    $('#videos').append("<video class=\"myVideo\" id='" + peer.id + "' autoplay muted:'false' volume:'0' style="+styler+"></video><br>");
     $('#' + peer.id).prop('src', URL.createObjectURL(stream));
 
     window.localStream = stream;

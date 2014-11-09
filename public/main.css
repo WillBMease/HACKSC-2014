@@ -13,18 +13,26 @@ h6 {
     0 4px 0 red;*/
 }
 
+video { width: 100%; }
+
 #set {
+    margin:0;
     position:absolute;
     top:2%;
     left:2%;
     display:none;
 }
 #videos {
+    height:480px;
+    width:640px;
     position:absolute;
     top:30%;
-    left:10%;
+    left:2%;
     border:15px solid orange;
     border-radius:20px;
+}
+.myVideo {
+    display:none;
 }
 #times {
     position:absolute;
