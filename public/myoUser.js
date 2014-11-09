@@ -11,7 +11,7 @@ myo_ = {
 		myoActive: false,
 		drawTime: [3],
 		userReady: [1, false],
-		opponentReady: true,
+		opponentReady: false,
 		gameover: false,
 		countdown: 5,
 		done: false,
@@ -19,6 +19,7 @@ myo_ = {
 		yellowSignal: $('#yellowSignal'),
 		greenSignal: $('#greenSignal'),
 		opponentTime: 0,
+		opponentPlayAgain: false,
 	},
 	init: function() {
 		//init function
