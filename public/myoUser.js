@@ -196,6 +196,8 @@ myo_ = {
 		s.opponentCheatPlayAgain = false;
 		s.yellowLight = 0;
 		s.redLight = 0;
+		benchmark[0] = 0;
+		synchronize[2] = 0;
 
 		s.redSignal.css('background-color','white');
 		s.yellowSignal.css('background-color','white');

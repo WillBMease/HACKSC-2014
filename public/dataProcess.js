@@ -123,6 +123,7 @@ user[index].on('data', function(data){
       var rtt = (newerDate - synchronize[2])
       data[1] = 2
       data[2] = rtt
+      data[3] = 0
       data[3] = +new Date()
       console.log('rtt: ' + rtt)
 
