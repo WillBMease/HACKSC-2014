@@ -41,7 +41,8 @@ user[index].on('data', function(data){
           color = 'red'
           
           $('#messages').empty()
-          $('#messages').css('color', color).text('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms")        
+          $('#messages').css('color', color).text('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms")
+          myo_.primeMyo();        
     }
   }
 
