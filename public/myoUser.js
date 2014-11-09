@@ -259,6 +259,8 @@ myo_ = {
 	}
 };
 
+        myo_.init();
+
 // var myMyo = Myo.create();
 // var threshHold = 0.3;
 // var myoActive = false
