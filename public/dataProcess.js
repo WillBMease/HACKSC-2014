@@ -85,7 +85,7 @@ user[index].on('data', function(data){
       else {
         console.log("YOU SUCK!")
       }
-      myo_.endSequence();
+      // myo_.endSequence();
     }
     }
 
