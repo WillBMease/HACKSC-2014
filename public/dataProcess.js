@@ -6,8 +6,16 @@
 function dataProcess(index, c){
   
         user[index] = c 
+
+        // loadRound()
+
         myo_.primeMyo(); 
         // callPeer()
+
+user[index].on('close', function(err){ 
+  alert(user[index].peer + ' has left the chat.') 
+  user[index] = 0
+});
 
 
 user[index].on('data', function(data){
@@ -16,7 +24,7 @@ user[index].on('data', function(data){
   if (data[0] == 0){     
     if (data[1] == 0){   // send ping back to user
       data[1] = 1
-      for (var i = 0 ; i < 4 ; i++){
+      for (var i = 1 ; i < userLimit ; i++){
         if (user[i] != 0){
            user[i].send(data)
         }
@@ -35,6 +43,7 @@ user[index].on('data', function(data){
         else
           color = 'red'
           
+          console.log(latency)
           $('#messages').empty()
           $('#messages').css('color', color).text('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms")       
     }

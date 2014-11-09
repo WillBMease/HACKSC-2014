@@ -17,3 +17,13 @@ $(document).ready(function(){
     });
 
 });
+
+
+// function loadRound(){
+//   $('.threedee').text('Gunslinger Found!').css('font-size','80px');
+//             $('.loader').hide();
+//             setTimeout(function(){
+//                 $('.threedee').hide();
+//                 $('#times').show();
+//             }, 2500);
+// }
