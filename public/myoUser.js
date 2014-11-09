@@ -213,6 +213,12 @@ myo_ = {
 				console.log("you lost!");
 				$('#set').text('YOU\'RE DEAD!');
 			}
+			myo_.reset();
+		    clearInterval(s.yellowLight);
+		    clearInterval(s.redLight);			
+			s.myLives = 3;
+			s.opponentLives = 3;
+			myo_.primeMyo();
 		}
 		
 	},
