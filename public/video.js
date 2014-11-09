@@ -21,7 +21,7 @@ $(function(){
   $('#end').bind('click', endCall);
 });
 
-getLocalVideo()
+// getLocalVideo()
 
 
 // **************************************************

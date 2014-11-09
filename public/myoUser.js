@@ -31,6 +31,11 @@ myo_ = {
 	init: function() {
 		//init function
 		s = this.globals;
+
+		s.myoUser.on('pose', function(poseName){
+			console.log(poseName);
+			playSound('gunshot')
+		})
 		// console.log('here')
 		   // myo_.debugAll();
 		s.myoUser.on('connected', function(){

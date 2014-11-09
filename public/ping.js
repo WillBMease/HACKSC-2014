@@ -22,3 +22,6 @@ function Ping(){
 }
 
 startPing()
+
+
+$('#status').text('Waiting for user to join')
