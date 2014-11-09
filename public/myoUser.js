@@ -75,13 +75,12 @@ myo_ = {
 		//console.log('countDown Function');
 		//var i = s.countdown;
 		var i = 1;
-	    // s.redLight = 
-	    setTimeout(function(){
+	    s.redLight = setInterval(function(){
 	    	s.redSignal.css('background-color','red');
 	    	myo_.cheated(s.redLight);
 	        if (i == 0) {
 				s.yellowSignal.css('background-color','yellow');
-				// clearInterval(s.redLight);
+				clearInterval(s.redLight);
 				myo_.yellowCountDown();
 	        }
 	        else console.log( 'Countdown: ' + (i--) );
