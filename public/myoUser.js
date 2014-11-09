@@ -20,6 +20,8 @@ myo_ = {
 		greenSignal: $('#greenSignal'),
 		opponentTime: 0,
 		opponentPlayAgain: false,
+		userPlayAgain: [4, false],
+		playAgainDone: false,
 	},
 	init: function() {
 		//init function
@@ -40,7 +42,7 @@ myo_ = {
 			    console.log("Gun Loaded!");
 			    s.userReady[1] = true;
 			    // send s.user.userReady Array to Data Process
-			   for (var i = 0 ; i < 2 ; i++){
+			    for (var i = 0 ; i < 2 ; i++){
 	    			if (user[i] != 0){
 	    				user[i].send(s.userReady)
 	    			}
@@ -107,9 +109,18 @@ myo_ = {
 		console.log("Send result to db (TODO)");
 		console.log("Make a fist to play again!");
 		s.myoUser.on('fist', function(edge) {
-			myo_.reset();
-			myo_.primeMyo();
-			s.myoUser.off('fist');
+			s.userPlayAgain[1] = true;
+	       	for (var i = 0 ; i < 2 ; i++){
+				if (user[i] != 0) {
+					user[i].send(s.userPlayAgain);
+				}
+			}
+		    if (s.opponentPlayAgain == true) {
+		    	console.log("Playing again second!");
+				myo_.reset();
+				myo_.primeMyo();
+				s.myoUser.off('fist');
+		    }
 		});
 	},
 	reset: function() {
@@ -119,6 +130,10 @@ myo_ = {
 		s.gameover = false;
 		s.countdown = 5;
 		s.done = false;
+		s.playAgainDone = false;
+		s.redSignal.css('background-color','white');
+		s.yellowSignal.css('background-color','white');
+		s.greenSignal.css('background-color','white');
 	},
 	debugPoses: function() {
 		s.myoUser.on('pose', function(poseName){
