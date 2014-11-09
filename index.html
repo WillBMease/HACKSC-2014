@@ -7,15 +7,29 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Language" content="en-us">
 
-<link href="stylesheet.css" rel="stylesheet" type="text/css"> 
+<!-- <link href="stylesheet.css" rel="stylesheet" type="text/css">  -->
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript" src="http://cdn.peerjs.com/0.3/peer.js"></script>
 <style>
   body { 
     background-image: url(img/wildwest.png); 
-    background-size:cover; 
     background-color: #65dffd;
+    /*background-size: contain;*/
+    background-size: cover;
+
+    /*background-position: center;*/
+    background-repeat: no-repeat;
+   /* position: fixed;*/
+    height:100%;
+    width:100%;
+    bottom:0;
+    /*right: 0; bottom: 0; left: 0;*/
+    /*z-index: 99999;*/
+   
+   
+
+    
     /*left: 50px;*/
   }
   #signal { 
@@ -51,19 +65,19 @@
     border-radius:50%;
     text-align:center;
   }
-  #actions {
+  /*#actions {
     width:50%;
     background-color:#FFF;
     padding:20px;
     border-radius:12px;
     margin:20px 0px 0px 20px;
-  }
+  }*/
 
-  div#large_tumbleweed {
+  /*div#large_tumbleweed {
    content:url(img/tumbleweed.png);
    margin-left: 20px;
 
-   margin-top: 750px;
+   margin-bottom:0px;
    width: 10%;
    position: fixed;
    height: 18%;
@@ -80,7 +94,7 @@
    height: 12%;
    opacity: 0.7;
    
- }
+ }*/
 
 
 #my-video {
@@ -94,44 +108,148 @@
   width: 100%;
   height: 75%;
   max-height: 480px;
+  display:none;
 /*  background-color: #eee;*/
 }
 
 #video-container {
+  display:none;
   padding: 25px;
   text-align: center;
   height: 1000px;
   width: 1500px;
 }
+#clouds{
+ 
+}
+.cloud {
+  width: 200px; height: 60px;
+  background: #fff;
+  
+  border-radius: 200px;
+  -moz-border-radius: 200px;
+  -webkit-border-radius: 200px;
+  
+  position: relative; 
+}
+
+.cloud:before, .cloud:after {
+    content: '';
+  position: absolute; 
+  background: #fff;
+  width: 100px; height: 80px;
+  position: absolute; top: -15px; left: 10px;
+  
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+}
+
+.cloud:after {
+  width: 120px; height: 120px;
+  top: -55px; left: auto; right: 15px;
+
+}
+
+/*Time to animate*/
+.x1 {
+  -webkit-animation: moveclouds 105s linear infinite;
+  -moz-animation: moveclouds 105s linear infinite;
+  -o-animation: moveclouds 105s linear infinite;
+  opacity: 0.3;
+  top: 2em;
+  z-index: 1;
+  position: absolute;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  transform: scale(0.9);
+}
+.x4 {
+  left: 600px; top: 5em;
+  
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  transform: scale(0.5);
+  opacity: 0.8; /*opacity proportional to the size*/
+  -webkit-animation: moveclouds 35s linear infinite;
+  -moz-animation: moveclouds 35s linear infinite;
+  -o-animation: moveclouds 35s linear infinite;
+  position: absolute;
+  z-index: 10;
+}
+
+
+.x3 {
+ left: 475px; top: 20px;
+  
+  -webkit-transform: scale(0.25);
+  -moz-transform: scale(0.25);
+  transform: scale(0.25);
+  opacity: 0.9; /*opacity proportional to the size*/
+  z-index: 6;
+  top: 10em;
+  
+  -webkit-animation: moveclouds 50s linear infinite;
+  -moz-animation: moveclouds 50s linear infinite;
+  -o-animation: moveclouds 50s linear infinite;
+  position: absolute;
+}
+.x2 {
+  left: -100px;
+  
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  transform: scale(0.7);
+  opacity: 0.7; /*opacity proportional to the size*/
+  top: 14em;
+  /*Speed will also be proportional to the size and opacity*/
+  /*More the speed. Less the time in 's' = seconds*/
+  -webkit-animation: moveclouds 65s linear infinite;
+  -moz-animation: moveclouds 65s linear infinite;
+  -o-animation: moveclouds 65s linear infinite;
+  position: absolute;
+  z-index: 2;
+}
+
+
+
+@-webkit-keyframes moveclouds {
+  0% {margin-left: 1000px;}
+  100% {margin-left: -1000px;}
+}
+@-moz-keyframes moveclouds {
+  0% {margin-left: 1000px;}
+  100% {margin-left: -1000px;}
+}
+@-o-keyframes moveclouds {
+  0% {margin-left: 1000px;}
+  100% {margin-left: -1000px;}
+}
+
+
 
 </style>
 </head>
      
 <body>
 
-<div class="x1">
-    <div class="cloud">
-      ::before
-      ::after
-    </div>
+<div id="clouds">
+<div class="cloud x1">
+   
 </div>
-<div class="x2">
-  <div class="cloud">
-      ::before
-      ::after
-  </div>
+ <div class="cloud x2">
+  
 </div>
-<div class="x3">
-  <div class="cloud">
-      ::before
-      ::after
-  </div>
+<div class="cloud x3">
+  
 </div>
-<div class="x4">
-  <div class="cloud">
-      ::before
-      ::after
-  </div>
+<div class="cloud x4">
+  
+</div> 
 </div>
 
 <div id="large_tumbleweed"></div>
