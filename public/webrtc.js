@@ -34,6 +34,7 @@ var peer = new Peer(userID, {
   // Open the peer using the randID "label" we assigned
   peer.on('open', function(label){
     $('#pid').text(label);
+    socket.emit('test', label)
   });  
 
   // Await connections from others

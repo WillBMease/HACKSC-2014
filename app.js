@@ -7,6 +7,11 @@
 
 var express = require('express');
 var app = express();
+var http = require('http').Server(app) ;
+var io = require('socket.io')(http) ;
+var net = require('net') ;
+
+var userIDs = []
 
 // var http = require('http')
   // , server = http.createServer(app)
@@ -30,7 +35,8 @@ app.get('/', function(req, res) {
 
 app.use(express.static('public'));
 
-app.listen(8888);
+// app.listen(8888);
+http.listen(8888)
 // server.listen(8888)
 console.log('Listening on port 8888');
 
@@ -39,7 +45,27 @@ process.on('uncaughtException', function (err) {
     console.log(err);
 }); 
 
+io.on('connection', function(socket){
+	console.log('a user connected');
+	socket.on('disconnect', function(){
+		console.log('user disconnected');
+	});
+	socket.on('test', function(msg){
+		var indexID = userIDs.length
+		userIDs[indexID] = msg
+		io.emit('test', userIDs) ;
+		console.log(userIDs) ;
+	});
+	// socket.on('osc off', function(msg){
+	// 	io.emit('osc off', msg) ;
+	// 	console.log(msg) ;
+	// });
+	// 	socket.on('sample on', function(msg){
+	// 	io.emit('sample on', msg) ;
+	// 	console.log(msg) ;
+	// });
 
+});
 // var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost:27017/mydb');
 
@@ -147,25 +173,7 @@ process.on('uncaughtException', function (err) {
 // 	    System.out.println(cursor.next());
 // 	}
 // }
-// // io.on('connection', function(socket){
-// // 	console.log('a user connected');
-// // 	socket.on('disconnect', function(){
-// // 		console.log('user disconnected');
-// // 	});
-// // 	socket.on('test', function(msg){
-// // 		io.emit('test', msg) ;
-// // 		console.log(msg) ;
-// // 	});
-// // 	// socket.on('osc off', function(msg){
-// // 	// 	io.emit('osc off', msg) ;
-// // 	// 	console.log(msg) ;
-// // 	// });
-// // 	// 	socket.on('sample on', function(msg){
-// // 	// 	io.emit('sample on', msg) ;
-// // 	// 	console.log(msg) ;
-// // 	// });
 
-// // });
 
 // // io.sockets.on('connection', function (socket) {
 // // 	console.log(socket)

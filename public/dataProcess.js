@@ -7,7 +7,7 @@ function dataProcess(index, c){
   
         user[index] = c 
         myo_.primeMyo(); 
-        callPeer()
+        // callPeer()
 
 
 user[index].on('data', function(data){
