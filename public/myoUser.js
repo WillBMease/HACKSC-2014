@@ -31,8 +31,8 @@ myo_ = {
 		oppFired: false,
 		random: 0,
 		lives: 3,
-		myLives: lives,
-		opponentLives: lives
+		myLives: 3,
+		opponentLives: 3
 	},
 	init: function() {
 		//init function
