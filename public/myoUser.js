@@ -53,8 +53,8 @@ myo_ = {
 				moveCircle(data.z, data.y)
 		});
 
-		s.myoUser.on('fist', function(edge) {
-			if (xcss > 700 && xcss < 800){
+		s.myoUser.on('fist', function() {
+			if (xcss > 500 && xcss < 600){
 				if (ycss > 300 && ycss < 400){
 					console.log('target play button!')
 				}
