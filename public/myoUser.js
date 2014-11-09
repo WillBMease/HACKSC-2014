@@ -217,7 +217,9 @@ myo_ = {
 			}
 			myo_.reset();
 		    clearInterval(s.yellowLight);
-		    clearInterval(s.redLight);			
+		    clearInterval(s.redLight);	
+		    $('#yourHealthContainer').html('<img src="img/Hearthfull.png"><img src="img/Hearthfull.png"><img src="img/Hearthfull.png">');
+		    $('#oppHealthContainer').html('<img src="img/Hearthfull.png"><img src="img/Hearthfull.png"><img src="img/Hearthfull.png">');	
 			s.myLives = 3;
 			s.opponentLives = 3;
 			myo_.primeMyo();
