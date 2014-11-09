@@ -93,11 +93,14 @@ user[index].on('data', function(data){
     s.opponentPlayAgain = true;
     if(s.userPlayAgain[1] == true && s.playAgainDone == false)
     {
-      s.myoUser.off('fist');
       s.playAgainDone = true;
-      myo_.endSequence();
+      clearInterval(s.yellowLight);
+      clearInterval(s.redLight);
+      myo_.reset();
+      myo_.primeMyo();
     }
   }
+
   //cheat play again
   else if (data[0] == 5) {
     clearInterval(s.yellowLight);
