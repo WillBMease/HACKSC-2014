@@ -95,15 +95,14 @@ myo_ = {
 	        	console.log("GO!");
 				s.greenSignal.css('background-color','green');
 				s.myoUser.off('orientation');
-				// clearInterval(s.yellowLight);
-				myo_.startGame(s.yellowLight);
+				clearInterval(s.yellowLight);
+				myo_.startGame();
 				console.log('yellow')
 	        }
 	        else console.log( 'Countdown: ' + (j--) );
 	    }, 1000);
 	},
-	startGame: function(inter) {
-		clearInterval(inter);
+	startGame: function() {
 		console.log('startGame Function');
 		var s1 = new Date();
 		var startTime = s1.getTime();
@@ -141,6 +140,7 @@ myo_ = {
 	endSequence: function() {
 		console.log("Send result to db (TODO)");
 		console.log("Make a fist to play again!");
+		clearInterval(s.yellowLight)
 		s.myoUser.on('fist', function(edge) {
 			s.userPlayAgain[1] = true;
 	       	for (var i = 0 ; i < 2 ; i++){
