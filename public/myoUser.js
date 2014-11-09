@@ -49,8 +49,8 @@ myo_ = {
 
     	s.myoUser.on('gyroscope', function(data){
     		movect++
-    		if (movect % 3 == 0)
-			moveCircle(data.z, data.y)
+    		if (movect > 30 && movect % 3 == 0)
+				moveCircle(data.z, data.y)
 		});
     		// myo_.primeMyo();
     	});
