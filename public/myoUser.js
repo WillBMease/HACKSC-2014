@@ -11,20 +11,21 @@ myo_ = {
 		myoActive: false,
 		drawTime: [3],
 		userReady: [1, false],
-		opponentReady: false,
+		opponentReady: true,
 		gameover: false,
 		countdown: 5,
 		done: false,
 		redSignal: $('#redSignal'),
 		yellowSignal: $('#yellowSignal'),
-		greenSignal: $('#greenSignal')
+		greenSignal: $('#greenSignal'),
+		opponentTime: 0,
 	},
 	init: function() {
 		//init function
 		s = this.globals;
 		s.myoUser.on('connected', function(){
     		console.log('Connected! Myo: ', this.id);
-    		// myo_.primeMyo();
+    		myo_.primeMyo();
     		// myo_.debugAll();
     	});
 	},
@@ -83,7 +84,7 @@ myo_ = {
 		var startTime = s1.getTime();
 		s.myoUser.on('orientation', function(data){
 			var hypot = Math.sqrt(data.x * data.x + data.y * data.y + data.z * data.z);
-		    if(hypot > s.threshHold && s.gameover == false){
+		    if(hypot > s.threshHold && s.gameover == false) {
 		    	s.gameover = true;
 		    	var e1 = new Date();
 		    	var endTime = e1.getTime();
@@ -96,8 +97,27 @@ myo_ = {
 	    				user[i].send(s.drawTime);
 	    			}
 	    		}
+	    		s.myoUser.off('orientation');
+	    		// myo_.endSequence();
 		    }
 		});
+	},
+	endSequence: function() {
+		console.log("Send result to db (TODO)");
+		console.log("Make a fist to play again!");
+		s.myoUser.on('fist', function(edge) {
+			myo_.reset();
+			myo_.primeMyo();
+			s.myoUser.off('fist');
+		});
+	},
+	reset: function() {
+		s.drawTime[1] = 0;
+		s.userReady[1] = false;
+		s.opponentReady = false;
+		s.gameover = false;
+		s.countdown = 5;
+		s.done = false;
 	},
 	debugPoses: function() {
 		s.myoUser.on('pose', function(poseName){
