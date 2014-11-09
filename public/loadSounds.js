@@ -27,6 +27,7 @@ function finishedLoading(bufferList) {
   gunshot = bufferList[0]
   shotgunload = bufferList[1]
   holster = bufferList[2]
+  ricochet = bufferList[3]
   console.log("sounds loaded!")
 }
 
