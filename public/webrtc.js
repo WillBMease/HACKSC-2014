@@ -6,7 +6,7 @@ for (var i = 0 ; i < userLimit ; i++) {
 }
   // Connect to PeerJS, have server assign an ID instead of providing one
   
-$(document).ready(function() {
+// $(document).ready(function() {
   
   // Generate random ID between 1 and 999 for the user
   var userID = Math.floor(Math.random() * 9999) + 1 ;
@@ -86,4 +86,4 @@ $('#messages').append('<br>No active connections.');
       c.on('error', function(err){ alert(err) });  
     });
 
-  });
+  // });
