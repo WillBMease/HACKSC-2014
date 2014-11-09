@@ -17,9 +17,7 @@ video { width: 100%; }
 
 #set {
     margin:0;
-    position:absolute;
-    top:2%;
-    left:2%;
+    text-align:center;
     display:none;
 }
 #videos {
@@ -28,7 +26,7 @@ video { width: 100%; }
     width:640px;
     position:absolute;
     top:20%;
-    left:2%;
+    left:100px;
     border:15px solid orange;
     border-radius:20px;
 }
