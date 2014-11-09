@@ -90,20 +90,20 @@ myo_ = {
 		// var j = Math.floor((Math.random() * 4) + 1);;
 		var j = s.random
 	    s.yellowLight = setInterval(function(){
-	    	myo_.cheated(s.yellowLight);
+	    	// myo_.cheated(s.yellowLight);
 	        if (j == 0) {
 	        	console.log("GO!");
 				s.greenSignal.css('background-color','green');
 				s.myoUser.off('orientation');
 				// clearInterval(s.yellowLight);
-				myo_.startGame();
+				myo_.startGame(s.yellowLight);
 				console.log('yellow')
 	        }
 	        else console.log( 'Countdown: ' + (j--) );
 	    }, 1000);
 	},
-	startGame: function() {
-		clearInterval(s.yellowLight);
+	startGame: function(inter) {
+		clearInterval(inter);
 		console.log('startGame Function');
 		var s1 = new Date();
 		var startTime = s1.getTime();
