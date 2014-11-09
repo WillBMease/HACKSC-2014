@@ -8,8 +8,6 @@ function dataProcess(index, c){
         user[index] = c 
 
         // loadRound()
-
-        myo_.primeMyo(); 
         // callPeer()
 
 user[index].on('close', function(err){ 

@@ -12,6 +12,7 @@ $(document).ready(function(){
             setTimeout(function(){
                   callPeer()
                   myo_.init();
+                  myo_.primeMyo(); 
                 $('.threedee').hide();
                 $('#times').show();
             }, 1000);
