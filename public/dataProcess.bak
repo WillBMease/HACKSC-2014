@@ -75,18 +75,16 @@ user[index].on('data', function(data){
     console.log('draw time of opponent: ' + data[1]);
     if(s.userFired == true) {
       if (s.drawTime[1] < s.opponentTime) {
-        console.log("Good job!")
-        --s.opponentLives;
+        console.log("YOU WIN!")
       }
       else {
-        console.log("You lost a life!")
-        --s.myLives;
+        console.log("YOU SUCK!")
       }
       // myo_.endSequence();
     }
-  }
+    }
 
-  else if (data[0] == 4) { //userPlayAgain[]
+  else if (data[0] == 4) {
     s.opponentPlayAgain = true;
     if(s.userPlayAgain[1] == true && s.playAgainDone == false)
     {
