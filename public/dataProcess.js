@@ -10,7 +10,7 @@ function dataProcess(index, c){
         // loadRound()
 
         myo_.primeMyo(); 
-        // callPeer()
+        callPeer()
 
 user[index].on('close', function(err){ 
   alert(user[index].peer + ' has left the chat.') 

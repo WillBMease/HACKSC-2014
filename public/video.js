@@ -47,17 +47,6 @@ function getLocalVideo() {
     $('#videos').append("<video id='" + peer.id + "' autoplay muted:'false' volume:'0' style="+styler+"></video><br>");
     $('#' + peer.id).prop('src', URL.createObjectURL(stream));
 
-    $(document).keydown(function(e){
-      if (e.which == 32){
-        stream.getAudioTracks()[0].enabled = true;
-      }
-    })
-    $(document).keyup(function(e){
-      if (e.which == 32){
-        stream.getAudioTracks()[0].enabled = false;
-}
-    })
-
     window.localStream = stream;
 
   }, function(){ /* alert('Cannot connect to webcam. Allow access.') */ });
