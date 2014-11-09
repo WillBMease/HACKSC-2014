@@ -105,6 +105,7 @@ myo_ = {
 	},
 	startGame: function() {
 		console.log('startGame Function');
+		playSound('gunshot')
 		var s1 = new Date();
 		var startTime = s1.getTime();
 		s.myoUser.on('orientation', function(data){
