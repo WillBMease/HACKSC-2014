@@ -49,7 +49,7 @@ user[index].on('data', function(data){
     s.opponentReady = true;
     if(s.userReady[1] == true && s.done == false)
     {
-      s.done = true
+      s.done = true;
       myo_.redCountDown();
     }
   }
@@ -69,7 +69,15 @@ user[index].on('data', function(data){
     else {
       console.log("YOU SUCK!")
     }
-    myo_.endSequence();
+  }
+  else if (data[0] == 4) {
+    s.opponentPlayAgain = true;
+    if(s.userPlayAgain[1] == true && s.playAgainDone == false)
+    {
+      s.myoUser.off('fist');
+      s.playAgainDone = true;
+      myo_.endSequence();
+    }
   }
 });
 
