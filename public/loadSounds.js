@@ -13,7 +13,6 @@ function init() {
     context,
     [
       '/sounds/gunshot.mp3',
-      '/sounds/gunload.mp3',
       '/sounds/shotgunload.mp3',
     ],
     finishedLoading
@@ -24,8 +23,8 @@ function init() {
 
 function finishedLoading(bufferList) {
   gunshot = bufferList[0]
-  gunload = bufferList[1]
-  shotgunload = bufferList[2]
+  shotgunload = bufferList[1]
+  console.log("sounds loaded!")
 }
 
 function playSound(sound){
