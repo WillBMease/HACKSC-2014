@@ -9,7 +9,7 @@ myo_ = {
 	globals: {
 		myoUser: Myo.create(),
 		threshHold: 0.4,
-		cheatThreshold: 0.1,
+		cheatThreshold: 0.2,
 		myoActive: false,
 		drawTime: [3],
 		userReady: [1, false],
