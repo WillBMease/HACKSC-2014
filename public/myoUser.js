@@ -54,11 +54,7 @@ myo_ = {
 		});
 
 		s.myoUser.on('fist', function() {
-			if (xcss > 500 && xcss < 600){
-				if (ycss > 300 && ycss < 400){
-					console.log('target play button!')
-				}
-			}
+				$('.playButton').trigger('click');
     		});
     	});
 	},
