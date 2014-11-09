@@ -10,6 +10,7 @@ $(document).ready(function(){
             $('.threedee').text('Gunslinger Found!').css('font-size','80px');
             $('.loader').hide();
             setTimeout(function(){
+                  callPeer()
                 $('.threedee').hide();
                 $('#times').show();
             }, 1000);
