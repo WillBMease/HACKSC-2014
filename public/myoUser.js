@@ -33,10 +33,10 @@ myo_ = {
 		//init function
 		s = this.globals;
 
-		s.myoUser.on('pose', function(poseName){
-			console.log(poseName);
-			playSound('gunshot')
-		})
+		// s.myoUser.on('pose', function(poseName){
+		// 	console.log(poseName);
+		// 	playSound('gunshot')
+		// })
 		// console.log('here')
 		   // myo_.debugAll();
 		s.myoUser.on('connected', function(){
@@ -110,6 +110,7 @@ myo_ = {
 		    	s.drawTime[1] = endTime - startTime;
 		    	console.log('Position: ' + hypot);
 		        console.log('BANG!');
+		        playSound('gunshot')
 		        console.log('Fire Time: ' + s.drawTime[1]);
 		       	for (var i = 0 ; i < 2 ; i++){
 	    			if (user[i] != 0){
