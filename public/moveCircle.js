@@ -33,10 +33,6 @@ function moveCircle(x, y){
 			clearRect()
 			rectVert()
 			rectHor()
-
-
-			// drawvert.x = xcss
-			// drawvert.y = ycss
 }
 
 

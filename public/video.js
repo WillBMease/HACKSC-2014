@@ -41,7 +41,6 @@ $(function(){
 // Call/Video Management
 function getLocalVideo() {
   navigator.getUserMedia({audio: false, video: true}, function(stream){
-
     console.log("Local video streaming");
     var styler = "'width: 100px;'"
     $('#videos').append("<video class=\"myVideo\" id='" + peer.id + "' autoplay muted:'false' volume:'0' style="+styler+"></video>");
@@ -51,8 +50,6 @@ function getLocalVideo() {
 
   }, function(){ /* alert('Cannot connect to webcam. Allow access.') */ });
 }
-
-
 
 
 
