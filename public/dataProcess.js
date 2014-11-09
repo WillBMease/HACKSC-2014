@@ -72,7 +72,7 @@ user[index].on('data', function(data){
         console.log("YOU SUCK!")
       }
     }
-  }
+    
   else if (data[0] == 4) {
     s.opponentPlayAgain = true;
     if(s.userPlayAgain[1] == true && s.playAgainDone == false)

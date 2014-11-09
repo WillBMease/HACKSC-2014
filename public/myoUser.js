@@ -117,7 +117,7 @@ myo_ = {
 	    				user[i].send(s.drawTime);
 	    			}
 	    		}
-	    		if(oppFired == true)
+	    		if(oppFired == true){
 			      if (s.drawTime < s.opponentTime) {
 			        console.log("YOU WIN!")
 			      }
