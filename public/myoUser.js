@@ -87,6 +87,7 @@ myo_ = {
 	    }, 1000);
 	},
 	yellowCountDown: function() {
+		console.log('new yellowcountdown')
 		// var j = Math.floor((Math.random() * 4) + 1);;
 		var j = s.random
 	    s.yellowLight = setInterval(function(){
