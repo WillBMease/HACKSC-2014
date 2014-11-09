@@ -50,7 +50,7 @@ user[index].on('data', function(data){
     if(s.userReady[1] == true && s.done == false)
     {
       s.done = true
-      myo_.countDown();
+      myo_.redCountDown();
     }
   }
   
@@ -60,7 +60,16 @@ user[index].on('data', function(data){
 
   // draw time of opponent
   else if (data[0] == 3){
-    console.log('draw time of opponent: ' + data[1])
+    s.receivedTime = true;
+    s.opponentTime = data[1];
+    console.log('draw time of opponent: ' + data[1]);
+    if (s.drawTime < s.opponentTime) {
+      console.log("YOU WIN!")
+    }
+    else {
+      console.log("YOU SUCK!")
+    }
+    myo_.endSequence();
   }
 });
 

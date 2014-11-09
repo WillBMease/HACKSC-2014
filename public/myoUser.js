@@ -14,14 +14,19 @@ myo_ = {
 		opponentReady: false,
 		gameover: false,
 		countdown: 5,
-		done: false
+		done: false,
+		redSignal: $('#redSignal'),
+		yellowSignal: $('#yellowSignal'),
+		greenSignal: $('#greenSignal'),
+		opponentTime: 0,
+		opponentPlayAgain: false,
 	},
 	init: function() {
 		//init function
 		s = this.globals;
 		s.myoUser.on('connected', function(){
     		console.log('Connected! Myo: ', this.id);
-    		// myo_.primeMyo();
+    		myo_.primeMyo();
     		// myo_.debugAll();
     	});
 	},
@@ -41,23 +46,37 @@ myo_ = {
 	    			}
 	    		}
 			    if (s.opponentReady == true) {
-			    	console.log("OPPONENTREADY, SHOULD START COUNTDOWN");
-			    	myo_.countDown();
+			    	console.log("I'm Ready 2nd");
+			    	myo_.redCountDown();
 			    }
 			}
 		});
 	},
-	countDown: function() {
+	redCountDown: function() {
 		//change this function to display on screen
-		console.log('countDown Function');
-		var i = s.countdown;
-	    var interval = setInterval(function(){
+		//console.log('countDown Function');
+		//var i = s.countdown;
+		var i = 1;
+	    var redLight = setInterval(function(){
+	    	s.redSignal.css('background-color','red');
 	        if (i == 0) {
-	        	console.log("GO!");
-				myo_.startGame();
-				clearInterval(interval);
+				s.yellowSignal.css('background-color','yellow');
+				clearInterval(redLight);
+				myo_.yellowCountDown();
 	        }
 	        else console.log( 'Countdown: ' + (i--) );
+	    }, 1000);
+	},
+	yellowCountDown: function() {
+		var j = Math.floor((Math.random() * 4) + 1);;
+	    var yellowLight = setInterval(function(){
+	        if (j == 0) {
+	        	console.log("GO!");
+				s.greenSignal.css('background-color','green');
+				myo_.startGame();
+				clearInterval(yellowLight);
+	        }
+	        else console.log( 'Countdown: ' + (j--) );
 	    }, 1000);
 	},
 	startGame: function() {
@@ -66,7 +85,7 @@ myo_ = {
 		var startTime = s1.getTime();
 		s.myoUser.on('orientation', function(data){
 			var hypot = Math.sqrt(data.x * data.x + data.y * data.y + data.z * data.z);
-		    if(hypot > s.threshHold && s.gameover == false){
+		    if(hypot > s.threshHold && s.gameover == false) {
 		    	s.gameover = true;
 		    	var e1 = new Date();
 		    	var endTime = e1.getTime();
@@ -79,8 +98,27 @@ myo_ = {
 	    				user[i].send(s.drawTime);
 	    			}
 	    		}
+	    		s.myoUser.off('orientation');
+	    		// myo_.endSequence();
 		    }
 		});
+	},
+	endSequence: function() {
+		console.log("Send result to db (TODO)");
+		console.log("Make a fist to play again!");
+		s.myoUser.on('fist', function(edge) {
+			myo_.reset();
+			myo_.primeMyo();
+			s.myoUser.off('fist');
+		});
+	},
+	reset: function() {
+		s.drawTime[1] = 0;
+		s.userReady[1] = false;
+		s.opponentReady = false;
+		s.gameover = false;
+		s.countdown = 5;
+		s.done = false;
 	},
 	debugPoses: function() {
 		s.myoUser.on('pose', function(poseName){
