@@ -43,7 +43,8 @@ function getLocalVideo() {
   navigator.getUserMedia({audio: false, video: true}, function(stream){
 
     console.log("Local video streaming");
-    $('#videos').append("<video id='" + peer.id + "' autoplay muted:'false' volume:'0'></video>");
+    var styler = "'width: 100px;'"
+    $('#videos').append("<video id='" + peer.id + "' autoplay muted:'false' volume:'0' style="+styler+"></video><br>");
     $('#' + peer.id).prop('src', URL.createObjectURL(stream));
 
     $(document).keydown(function(e){
@@ -89,7 +90,8 @@ function processCall(call) {
   call.on('stream', function(remoteStream){
     console.log("Adding video from " + call.peer);
     // $('#videos').empty()
-    $('div#videos').append("<video id='" + call.peer + "' autoplay>");
+    var styler = "margin: 0 auto; width: 640px; height: 480px;"
+    $('div#videos').append("<video id='" + call.peer + "' autoplay style="+styler+">");
     $('#' + call.peer).prop('src', URL.createObjectURL(remoteStream));
   });
 

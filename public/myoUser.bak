@@ -31,8 +31,8 @@ myo_ = {
 		oppFired: false,
 		random: 0,
 		lives: 3,
-		myLives: 3,
-		opponentLives: 3
+		myLives: lives,
+		opponentLives: lives
 	},
 	init: function() {
 		//init function
@@ -51,7 +51,6 @@ myo_ = {
 	},
 	primeMyo: function() {
 		console.log('primeMyo Function');
-		console.log('My Lives:' + s.myLives + ', Opp Lives:' + s.opponentLives)
 		s.myoUser.on('fingers_spread', function(edge){
 		    if(!edge) return;
 		    if (s.userReady[1] == false) {
@@ -109,6 +108,7 @@ myo_ = {
 	},
 	startGame: function() {
 		console.log('startGame Function');
+		playSound('gunshot')
 		var s1 = new Date();
 		var startTime = s1.getTime();
 		s.myoUser.on('orientation', function(data){
@@ -128,25 +128,16 @@ myo_ = {
 	    				user[i].send(s.drawTime);
 	    			}
 	    		}
-
+	    		//You lost
 	    		if(s.oppFired == true){
-	    			if(s.myLives > 0 && s.opponentLives > 0) {
-				      if (s.drawTime[1] < s.opponentTime) {
-				        console.log("Good job!")
-				        --s.opponentLives;
-				      }
-				      else {
-				        console.log("You lost a life!")
-				        --s.myLives;
-				      }
-				   }
+			      if (s.drawTime[1] < s.opponentTime) {
+			        console.log("YOU WIN!")
+			      }
+			      else {
+			        console.log("YOU SUCK!")
+			      }
 			    }
-			    if(s.myLives > 0 && s.opponentLives > 0) {
-			    	myo_.endSequence();
-			    } else {
-					if(s.myLives > 0) console.log("you won!");
-					else console.log("you lost!");
-				}
+			    myo_.endSequence();
 	    		s.myoUser.off('orientation');
 	    		
 		    }
@@ -157,25 +148,19 @@ myo_ = {
 		console.log("Make a fist to play again!");
 		clearInterval(s.yellowLight)
 		clearInterval(s.redLight)
-		if(s.myLives > 0 && s.opponentLives > 0) {
-			s.myoUser.on('fist', function(edge) {
-				s.userPlayAgain[1] = true;
-		       	for (var i = 0 ; i < 2 ; i++){
-					if (user[i] != 0) {
-						user[i].send(s.userPlayAgain);
-					}
+		s.myoUser.on('fist', function(edge) {
+			s.userPlayAgain[1] = true;
+	       	for (var i = 0 ; i < 2 ; i++){
+				if (user[i] != 0) {
+					user[i].send(s.userPlayAgain);
 				}
-			    if (s.opponentPlayAgain == true) {
-			    	console.log("Playing again second!");
-					myo_.reset();
-					myo_.primeMyo();
-			    }
-			});
-		} else {
-			if(s.myLives > 0) console.log("you won!");
-			else console.log("you lost!");
-		}
-		
+			}
+		    if (s.opponentPlayAgain == true) {
+		    	console.log("Playing again second!");
+				myo_.reset();
+				myo_.primeMyo();
+		    }
+		});
 	},
 	cheated: function(light) {
 
@@ -227,6 +212,7 @@ myo_ = {
 		s.myoUser.off('fist');
 		s.myoUser.off('imu');
 		s.myoUser.off('fingers_spread');
+
 	},
 	debugPoses: function() {
 		s.myoUser.on('pose', function(poseName){
