@@ -65,7 +65,7 @@ myo_ = {
 	    		}
 			    if (s.opponentReady == true) {
 			    	console.log("I'm Ready 2nd");
-			    	myo_.redCountDown();
+			    	// myo_.redCountDown();
 			    }
 			}
 		});
