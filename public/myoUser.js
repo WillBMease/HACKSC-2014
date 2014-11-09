@@ -153,8 +153,13 @@ myo_ = {
 			    	// console.log('My Lives hi:' + s.myLives + ', Opp Lives:' + s.opponentLives)
 			    	myo_.endSequence();
 			    } else {
-					if(s.myLives > 0) console.log("you won!");
-					else console.log("you lost!");
+					if(s.myLives > 0) {
+						console.log("you won!");
+						$('#set').text('YOU WON!');
+					} else {
+						console.log("you lost!");
+						$('#set').text('YOU LOSE!');
+					}
 				}
 	    		s.myoUser.off('orientation');
 	    		
@@ -189,8 +194,13 @@ myo_ = {
 			    }
 			});
 		} else {
-			if(s.myLives > 0) console.log("you won!");
-			else console.log("you lost!");
+			if(s.myLives > 0) {
+				console.log("you won!");
+				$('#set').text('YOU WON!');
+			} else {
+				console.log("you lost!");
+				$('#set').text('YOU LOSE!');
+			}
 		}
 		
 	},
