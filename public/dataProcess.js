@@ -61,13 +61,16 @@ user[index].on('data', function(data){
   // draw time of opponent
   else if (data[0] == 3){
     s.receivedTime = true;
+    s.oppFired = true;
     s.opponentTime = data[1];
     console.log('draw time of opponent: ' + data[1]);
-    if (s.drawTime < s.opponentTime) {
-      console.log("YOU WIN!")
-    }
-    else {
-      console.log("YOU SUCK!")
+    if(s.userFired == true)
+      if (s.drawTime < s.opponentTime) {
+        console.log("YOU WIN!")
+      }
+      else {
+        console.log("YOU SUCK!")
+      }
     }
   }
   else if (data[0] == 4) {
@@ -79,6 +82,7 @@ user[index].on('data', function(data){
       myo_.endSequence();
     }
   }
+  //cheat play again
   else if (data[0] == 5) {
     clearInterval(s.yellowLight);
     clearInterval(s.redLight);

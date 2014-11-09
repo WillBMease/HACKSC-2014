@@ -14,7 +14,6 @@ myo_ = {
 		userReady: [1, false],
 		opponentReady: false,
 		gameover: false,
-		countdown: 5,
 		done: false,
 		redSignal: $('#redSignal'),
 		yellowSignal: $('#yellowSignal'),
@@ -27,6 +26,8 @@ myo_ = {
 		opponentCheatPlayAgain: false,
 		yellowLight: 0,
 		redLight: 0,
+		userFired: false,
+		oppFired: false
 	},
 	init: function() {
 		//init function
@@ -97,6 +98,7 @@ myo_ = {
 			var hypot = Math.sqrt(data.x * data.x + data.y * data.y + data.z * data.z);
 		    if(hypot > s.threshHold && s.gameover == false) {
 		    	s.gameover = true;
+		    	s.userFired = true;
 		    	var e1 = new Date();
 		    	var endTime = e1.getTime();
 		    	s.drawTime[1] = endTime - startTime;
@@ -108,8 +110,16 @@ myo_ = {
 	    				user[i].send(s.drawTime);
 	    			}
 	    		}
+	    		if(oppFired == true)
+			      if (s.drawTime < s.opponentTime) {
+			        console.log("YOU WIN!")
+			      }
+			      else {
+			        console.log("YOU SUCK!")
+			      }
+			    }
 	    		s.myoUser.off('orientation');
-	    		// myo_.endSequence();
+	    		myo_.endSequence();
 		    }
 		});
 	},
@@ -127,7 +137,6 @@ myo_ = {
 		    	console.log("Playing again second!");
 				myo_.reset();
 				myo_.primeMyo();
-				s.myoUser.off('fist');
 		    }
 		});
 	},
@@ -139,31 +148,47 @@ myo_ = {
 				clearInterval(light);
 				console.log('Cheater! Position: ' + hypot);
 				s.myoUser.off('orientation');
-				myo_.reset();
 				s.cheatPlayAgain[1] = true;
 				s.cheatPlayAgain[2] = light;
-
 			    for (var i = 0 ; i < 2 ; i++){
 	    			if (user[i] != 0){
-	    				user[i].send(s.cheatPlayAgain)
+	    				user[i].send(s.cheatPlayAgain);
 	    			}
 	    		}
+	    		myo_.reset();
 				myo_.primeMyo();
 			}
 		});
 	},
 	reset: function() {
+		//
 		s.drawTime[1] = 0;
+		s.opponentTime = 0;
+
+		s.userFired = false;
+		s.oppFired = false;
 		s.userReady[1] = false;
 		s.cheatPlayAgain[1] = false;
 		s.opponentReady = false;
 		s.gameover = false;
-		s.countdown = 5;
 		s.done = false;
 		s.playAgainDone = false;
+		s.opponentPlayAgain = false;
+		s.userPlayAgain = [4, false];
+		s.cheatPlayAgain = [5, false];
+		s.opponentCheatPlayAgain = false;
+		s.yellowLight = 0;
+		s.redLight = 0;
+
 		s.redSignal.css('background-color','white');
 		s.yellowSignal.css('background-color','white');
 		s.greenSignal.css('background-color','white');
+
+		s.myoUser.off('orientation');
+		s.myoUser.off('fist');
+		s.myoUser.off('imu');
+		s.myoUser.off('fingers_spread');
+
 	},
 	debugPoses: function() {
 		s.myoUser.on('pose', function(poseName){
