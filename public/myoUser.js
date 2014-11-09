@@ -95,7 +95,7 @@ myo_ = {
 	        	console.log("GO!");
 				s.greenSignal.css('background-color','green');
 				s.myoUser.off('orientation');
-				clearInterval(s.yellowLight);
+				// clearInterval(s.yellowLight);
 				myo_.startGame();
 				console.log('yellow')
 	        }
@@ -103,7 +103,7 @@ myo_ = {
 	    }, 1000);
 	},
 	startGame: function() {
-		// clearInterval(s.yellowLight);
+		clearInterval(s.yellowLight);
 		console.log('startGame Function');
 		var s1 = new Date();
 		var startTime = s1.getTime();
