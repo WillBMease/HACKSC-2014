@@ -88,6 +88,7 @@ myo_ = {
 	},
 	yellowCountDown: function() {
 		// var j = Math.floor((Math.random() * 4) + 1);;
+		var j = s.random
 	    s.yellowLight = setInterval(function(){
 	    	myo_.cheated(s.yellowLight);
 	        if (j == 0) {

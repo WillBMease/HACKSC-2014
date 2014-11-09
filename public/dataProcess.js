@@ -107,6 +107,7 @@ user[index].on('data', function(data){
     if (data[1] == 0){
       data[1] = 1
       benchmark[0] = data[2]
+      s.random = data[3]
       for (var i = 0 ; i < 2 ; i++){
         if (user[i] != 0){
           user[i].send(data)
