@@ -95,9 +95,9 @@ myo_ = {
 	        	console.log("GO!");
 				s.greenSignal.css('background-color','green');
 				s.myoUser.off('orientation');
+				clearInterval(s.yellowLight);
 				myo_.startGame();
 				console.log('yellow')
-				clearInterval(s.yellowLight);
 	        }
 	        else console.log( 'Countdown: ' + (j--) );
 	    }, 1000);
