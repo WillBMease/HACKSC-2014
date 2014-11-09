@@ -11,6 +11,7 @@ $(document).ready(function(){
             $('.loader').hide();
             setTimeout(function(){
                   callPeer()
+                  myo_.init();
                 $('.threedee').hide();
                 $('#times').show();
             }, 1000);
