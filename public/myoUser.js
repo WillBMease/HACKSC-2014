@@ -64,8 +64,9 @@ myo_ = {
 	},
 	primeMyo: function() {
 		console.log('primeMyo Function');
+		$('#set').text('COCK YOUR WEAPON!');
 		s.myoUser.on('fingers_spread', function(edge){
-			$('#set').text('COCK YOUR WEAPON!');
+			$('#set').text('GET READY!');
 		    if(!edge) return;
 		    if (s.userReady[1] == false) {
 			    s.myoUser.vibrate();
@@ -184,18 +185,18 @@ myo_ = {
 		if (s.opponentTime == -1) { // opponent lost; you won
 			--s.opponentLives;
 			console.log("You survived");
-			$('#yourHealthContainer img').last().remove();
+			$('#oppHealthContainer img').last().remove();
 			$('#set').text('YOU SURVIVED!');
 		} else {
 			--s.myLives;
 			console.log("You lost a life");
-			$('#oppHealthContainer img').last().remove();
+			$('#yourHealthContainer img').last().remove();
 			$('#set').text('YOU LOST A LIFE!');
 		}
 		console.log('My Lives:' + s.myLives + ', Opp Lives:' + s.opponentLives)
 		if(s.myLives > 0 && s.opponentLives > 0) {
+			$('#set').text('RELOAD YOUR WEAPON!');
 			s.myoUser.on('fist', function(edge) {
-				$('#set').text('RELOAD YOUR WEAPON!');
 				playSound('holster')
 				s.userPlayAgain[1] = true;
 		       	for (var i = 1 ; i < userLimit ; i++){
