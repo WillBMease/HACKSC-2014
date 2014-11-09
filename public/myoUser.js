@@ -77,7 +77,7 @@ myo_ = {
 		var i = 1;
 	    s.redLight = setInterval(function(){
 	    	s.redSignal.css('background-color','red');
-	    	myo_.cheated(s.redLight);
+	    	// myo_.cheated(s.redLight);
 	        if (i == 0) {
 				s.yellowSignal.css('background-color','yellow');
 				clearInterval(s.redLight);
@@ -141,6 +141,7 @@ myo_ = {
 		console.log("Send result to db (TODO)");
 		console.log("Make a fist to play again!");
 		clearInterval(s.yellowLight)
+		clearInterval(s.redLight)
 		s.myoUser.on('fist', function(edge) {
 			s.userPlayAgain[1] = true;
 	       	for (var i = 0 ; i < 2 ; i++){
