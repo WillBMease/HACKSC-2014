@@ -230,10 +230,24 @@
 
 
 
+.full-circle {
+ background-color: rgba(204, 0, 102, 0);
+ border: 3px solid #333;
+ height: 150px;
+ width: 150px;
+ -moz-border-radius:75px;
+ -webkit-border-radius: 75px;
+ position: absolute;
+    left: 100px;
+    top: 150px;
+}
+
 </style>
 </head>
      
 <body>
+
+<p class="full-circle"></p>
 
 <div id="clouds">
 <div class="cloud x1">
@@ -307,6 +321,7 @@
      <script src="bufferloader.js"></script>
      <script src="loadSounds.js"></script>
      <script src="ui.js"></script>
+     <script src="moveCircle.js"></script>
      <!-- // <script src="moveCloud.js"></script> -->
 
 
