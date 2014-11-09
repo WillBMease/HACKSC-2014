@@ -1,7 +1,7 @@
 window.onload = init;
 var context;
 var bufferLoader;
-var gunshot, gunload, shotgunload
+var gunshot, gunload, shotgunload, holster
   
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
   context = new AudioContext();
@@ -14,6 +14,7 @@ function init() {
     [
       '/sounds/gunshot.mp3',
       '/sounds/shotgunload.mp3',
+      '/sounds/holster.mp3',
     ],
     finishedLoading
     );
@@ -24,6 +25,7 @@ function init() {
 function finishedLoading(bufferList) {
   gunshot = bufferList[0]
   shotgunload = bufferList[1]
+  holster = bufferList[2]
   console.log("sounds loaded!")
 }
 
@@ -41,6 +43,11 @@ function playSound(sound){
   }
   else if (sound == 'shotgunload'){
     source.buffer = shotgunload
+    source.connect(context.destination)
+    source.start(0)
+  }
+  else if (sound == 'holster'){
+    source.buffer = holster
     source.connect(context.destination)
     source.start(0)
   }
