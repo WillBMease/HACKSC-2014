@@ -128,20 +128,20 @@ myo_ = {
 	    			}
 	    		}
 
-	    		if(s.oppFired == true){
-	    			if(s.myLives > 0 && s.opponentLives > 0) {
-				      if (s.drawTime[1] < s.opponentTime) {
-				        console.log("Good job!")
-				        --s.opponentLives;
-				      }
-				      else {
-				        console.log("You lost a life!")
-				        --s.myLives;
-				      }
-				   }
-			    }
+	    		// if(s.oppFired == true){
+	    		// 	// if(s.myLives > 0 && s.opponentLives > 0) {
+				   //    if (s.drawTime[1] < s.opponentTime) {
+				   //      console.log("Good job!")
+				   //      // --s.opponentLives;
+				   //    }
+				   //    else {
+				   //      console.log("You lost a life!")
+				   //      // --s.myLives;
+				   //    }
+				   // // }
+			    // }
 			    if(s.myLives > 0 && s.opponentLives > 0) {
-			    	console.log('My Lives hi:' + s.myLives + ', Opp Lives:' + s.opponentLives)
+			    	// console.log('My Lives hi:' + s.myLives + ', Opp Lives:' + s.opponentLives)
 			    	myo_.endSequence();
 			    } else {
 					if(s.myLives > 0) console.log("you won!");
@@ -155,10 +155,17 @@ myo_ = {
 	endSequence: function() {
 		console.log("Send result to db (TODO)");
 		console.log("Make a fist to play again!");
-		clearInterval(s.yellowLight)
-		clearInterval(s.redLight)
+		clearInterval(s.yellowLight);
+		clearInterval(s.redLight);
+		if (s.opponentTime == 0) { // opponent lost; you won
+			--s.opponentLives;
+			console.log("You survived");
+		} else {
+			--s.myLives;
+			console.log("You lost a life")
+		}
+		console.log('My Lives:' + s.myLives + ', Opp Lives:' + s.opponentLives)
 		if(s.myLives > 0 && s.opponentLives > 0) {
-			console.log('My Lives:' + s.myLives + ', Opp Lives:' + s.opponentLives)
 			s.myoUser.on('fist', function(edge) {
 				s.userPlayAgain[1] = true;
 		       	for (var i = 0 ; i < 2 ; i++){
