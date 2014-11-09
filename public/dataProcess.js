@@ -12,6 +12,7 @@ var averagecount = 0;
 // var logger = []   // counts how many of each delay there is
   
         user[index] = c 
+        myo_.primeMyo(); 
 
           // Receive the incoming message and play it calling midi function
             
@@ -41,8 +42,7 @@ user[index].on('data', function(data){
           color = 'red'
           
           $('#messages').empty()
-          $('#messages').css('color', color).text('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms")
-          myo_.primeMyo();        
+          $('#messages').css('color', color).text('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms")       
     }
   }
 
