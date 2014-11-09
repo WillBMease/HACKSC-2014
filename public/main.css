@@ -12,6 +12,20 @@ h6 {
     0 2px 0 red,
     0 4px 0 red;*/
 }
+
+#set {
+    position:absolute;
+    top:2%;
+    left:2%;
+    display:none;
+}
+#videos {
+    position:absolute;
+    top:30%;
+    left:10%;
+    border:15px solid orange;
+    border-radius:20px;
+}
 #times {
     position:absolute;
     right:100px;

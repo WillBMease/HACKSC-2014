@@ -19,7 +19,7 @@ myo_ = {
 		redSignal: $('#redSignal'),
 		yellowSignal: $('#yellowSignal'),
 		greenSignal: $('#greenSignal'),
-		opponentTime: 0,
+		opponentTime: -1,
 		opponentPlayAgain: false,
 		userPlayAgain: [4, false],
 		playAgainDone: false,
@@ -83,6 +83,7 @@ myo_ = {
 		//change this function to display on screen
 		//console.log('countDown Function');
 		//var i = s.countdown;
+		$('#set').text('GET READY!');
 		var i = 1;
 	    s.redLight = setInterval(function(){
 	    	s.redSignal.css('background-color','red');
@@ -102,6 +103,7 @@ myo_ = {
 	    s.yellowLight = setInterval(function(){
 	    	// myo_.cheated(s.yellowLight);
 	        if (j == 0) {
+	        	$('#set').text('FIRE!');
 	        	console.log("GO!");
 				s.greenSignal.css('background-color','green');
 				s.myoUser.off('orientation');
@@ -163,7 +165,7 @@ myo_ = {
 		console.log("Make a fist to play again!");
 		clearInterval(s.yellowLight);
 		clearInterval(s.redLight);
-		if (s.opponentTime == 0) { // opponent lost; you won
+		if (s.opponentTime == -1) { // opponent lost; you won
 			--s.opponentLives;
 			console.log("You survived");
 		} else {
@@ -214,7 +216,7 @@ myo_ = {
 	reset: function() {
 		//
 		s.drawTime[1] = 0;
-		s.opponentTime = 0;
+		s.opponentTime = -1;
 
 		s.userFired = false;
 		s.oppFired = false;
