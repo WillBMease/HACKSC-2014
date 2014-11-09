@@ -135,7 +135,7 @@ user[index].on('data', function(data){
     }
 
     else if (data[1] == 2){
-      var offset = data[3] - benchmark[0] + rtt
+      var offset = data[3] - benchmark[0]
       console.log('offset: ' + offset)
       setTimeout(function(){
         myo_.redCountDown();
