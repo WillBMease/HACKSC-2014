@@ -7,7 +7,7 @@ $(document).ready(function(){
        $('.playButton').hide(); 
        $('.modal').append('<img height="200" src="img/sunny.svg" class="loader">');
        setTimeout(function(){
-            $('.threedee').text('Gunslinger Found!').css('font-size','80px');
+            $('.threedee').text('Opponent Found!').css('font-size','80px');
             $('.loader').hide();
             setTimeout(function(){
                   callPeer()
