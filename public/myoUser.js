@@ -31,10 +31,10 @@ myo_ = {
 	init: function() {
 		//init function
 		s = this.globals;
+		   myo_.debugAll();
 		s.myoUser.on('connected', function(){
     		console.log('Connected! Myo: ', this.id);
     		// myo_.primeMyo();
-    		// myo_.debugAll();
     	});
 	},
 	primeMyo: function() {
