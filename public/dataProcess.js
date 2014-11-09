@@ -50,7 +50,7 @@ user[index].on('data', function(data){
     if(s.userReady[1] == true && s.done == false)
     {
       s.done = true
-      myo_.countDown();
+      myo_.redCountDown();
     }
   }
   

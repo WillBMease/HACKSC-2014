@@ -14,7 +14,10 @@ myo_ = {
 		opponentReady: false,
 		gameover: false,
 		countdown: 5,
-		done: false
+		done: false,
+		redSignal: $('#redSignal'),
+		yellowSignal: $('#yellowSignal'),
+		greenSignal: $('#greenSignal')
 	},
 	init: function() {
 		//init function
@@ -41,23 +44,37 @@ myo_ = {
 	    			}
 	    		}
 			    if (s.opponentReady == true) {
-			    	console.log("OPPONENTREADY, SHOULD START COUNTDOWN");
-			    	myo_.countDown();
+			    	console.log("I'm Ready 2nd");
+			    	myo_.redCountDown();
 			    }
 			}
 		});
 	},
-	countDown: function() {
+	redCountDown: function() {
 		//change this function to display on screen
-		console.log('countDown Function');
-		var i = s.countdown;
-	    var interval = setInterval(function(){
+		//console.log('countDown Function');
+		//var i = s.countdown;
+		var i = 1;
+	    var redLight = setInterval(function(){
+	    	s.redSignal.css('background-color','red');
 	        if (i == 0) {
-	        	console.log("GO!");
-				myo_.startGame();
-				clearInterval(interval);
+				s.yellowSignal.css('background-color','yellow');
+				clearInterval(redLight);
+				myo_.yellowCountDown();
 	        }
 	        else console.log( 'Countdown: ' + (i--) );
+	    }, 1000);
+	},
+	yellowCountDown: function() {
+		var j = Math.floor((Math.random() * 4) + 1);;
+	    var yellowLight = setInterval(function(){
+	        if (j == 0) {
+	        	console.log("GO!");
+				s.greenSignal.css('background-color','green');
+				myo_.startGame();
+				clearInterval(yellowLight);
+	        }
+	        else console.log( 'Countdown: ' + (j--) );
 	    }, 1000);
 	},
 	startGame: function() {
