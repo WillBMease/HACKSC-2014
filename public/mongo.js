@@ -18,7 +18,7 @@
 // var collections = ["test"]
 // var db = require("mongojs").connect(databaseUrl, collections);
 
-var main = require('../app')
+// var main = require('../app')
 
 // db.test.save({user: "Will", type: "user"}, function(err, saved) {
 //   if( err || !saved ) console.log("User not saved");
