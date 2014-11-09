@@ -63,36 +63,6 @@
     border-radius:50%;
     text-align:center;
   }
-  /*#actions {
-    width:50%;
-    background-color:#FFF;
-    padding:20px;
-    border-radius:12px;
-    margin:20px 0px 0px 20px;
-  }*/
-
-  /*div#large_tumbleweed {
-   content:url(img/tumbleweed.png);
-   margin-left: 20px;
-
-   margin-bottom:0px;
-   width: 10%;
-   position: fixed;
-   height: 18%;
-   opacity: 0.8;
-   
- }
- div#small_tumbleweed {
-   content:url(img/tumbleweed.png);
-   margin-left: 720px;
-
-   margin-top: 550px;
-   width: 6%;
-   position: fixed;
-   height: 12%;
-   opacity: 0.7;
-   
- }*/
 
 
 #my-video {
@@ -117,9 +87,20 @@
   height: 1000px;
   width: 1500px;
 }
-#clouds{
- 
+.tumbleweed-image {
+   position: absolute;
+    margin-top: 450px;
+    opacity:0.9;
+    left: -300px;
 }
+.tumbleweed-image2 {
+   position: absolute;
+    margin-top: 400px;
+    opacity:0.7;
+    left: -1000px;
+}
+
+
 .cloud {
   width: 200px; height: 60px;
   background: #fff;
@@ -132,7 +113,7 @@
 }
 
 .cloud:before, .cloud:after {
-    content: '';
+  content: '';
   position: absolute; 
   background: #fff;
   width: 100px; height: 80px;
@@ -152,6 +133,7 @@
   top: -55px; left: auto; right: 15px;
 
 }
+
 
 /*Time to animate*/
 .x1 {
@@ -231,8 +213,9 @@
 
 
 .full-circle {
- background-color: rgba(204, 0, 102, 0);
- border: 3px solid #333;
+ background-color: rgba(204, 0, 102, .1);
+ border: 4px solid #333;
+  /*border: 3px solid #000;*/
  height: 150px;
  width: 150px;
  -moz-border-radius:75px;
@@ -242,12 +225,28 @@
     top: 150px;
 }
 
+#canvasVertical {
+  position: absolute;
+  left: 100px;
+  top: 150px;
+}
+
+#canvasHorizontal {
+  position: absolute;
+  left: 100px;
+  top: 150px;
+}
+
+
 </style>
 </head>
      
 <body>
 
 <p class="full-circle"></p>
+<canvas id="canvasVertical" width="160" height="180"></canvas>
+<canvas id="canvasHorizontal" width="160" height="180"></canvas>
+
 
 <div id="clouds">
 <div class="cloud x1">
@@ -264,10 +263,15 @@
 </div> 
 </div>
 
-<div id="large_tumbleweed"></div>
+<div class ="tumbleweed">
+  <img class = "tumbleweed-image" src="img/tumbleweed.png" alt="tumbleweed" height="30%" width="15%"/>
+  <img class = "tumbleweed-image2" src="img/tumbleweed.png" alt="tumbleweed" height="15%" width="8%"/>
+</div>
+
+<!-- <div id="large_tumbleweed"></div>
 <br><br><br> 
 <div id="small_tumbleweed"></div>
-
+ -->
 
   <div id="signal">
     <div id="redSignal"></div>
@@ -320,10 +324,10 @@
      <script src="video.js"></script>
      <script src="bufferloader.js"></script>
      <script src="loadSounds.js"></script>
+     <script src="tumbleweed.js"></script>
      <script src="ui.js"></script>
      <script src="moveCircle.js"></script>
-     <!-- // <script src="moveCloud.js"></script> -->
-
+     
 
 </body>
 </html>
