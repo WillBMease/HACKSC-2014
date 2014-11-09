@@ -64,7 +64,7 @@ myo_ = {
 	},
 	primeMyo: function() {
 		console.log('primeMyo Function');
-		$('#set').text('COCK YOUR WEAPON!');
+		$('#set').text('COCK YOUR WEAPON!').show();
 		s.myoUser.on('fingers_spread', function(edge){
 			$('#set').text('GET READY!');
 		    if(!edge) return;
@@ -218,14 +218,16 @@ myo_ = {
 				console.log("you lost!");
 				$('#set').text('YOU\'RE DEAD!');
 			}
-			myo_.reset();
-		    clearInterval(s.yellowLight);
-		    clearInterval(s.redLight);	
-		    $('#yourHealthContainer').html('<img src="img/Heartfull.png"><img src="img/Heartfull.png"><img src="img/Heartfull.png">');
-		    $('#oppHealthContainer').html('<img src="img/Heartfull.png"><img src="img/Heartfull.png"><img src="img/Heartfull.png">');	
-			s.myLives = 3;
-			s.opponentLives = 3;
-			myo_.primeMyo();
+			setTimeout(function(){
+				myo_.reset();
+			    clearInterval(s.yellowLight);
+			    clearInterval(s.redLight);	
+			    $('#yourHealthContainer').html('<img src="img/Heartfull.png"><img src="img/Heartfull.png"><img src="img/Heartfull.png">');
+			    $('#oppHealthContainer').html('<img src="img/Heartfull.png"><img src="img/Heartfull.png"><img src="img/Heartfull.png">');	
+				s.myLives = 3;
+				s.opponentLives = 3;
+				myo_.primeMyo();
+			},5000);
 		}
 		
 	},
