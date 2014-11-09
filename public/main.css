@@ -1,0 +1,84 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1 { color:orange; font-family: 'Helvetica'; font-size:90px; text-transform:uppercase; font-weight:bold;
+    /*text-shadow:1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;*/
+
+}
+h6 {
+    color:#FFF; font-family: 'Helvetica'; font-size:30px; text-transform:uppercase; font-weight:bold;
+    margin:0;
+    /*text-shadow: 
+    0 2px 0 red,
+    0 4px 0 red;*/
+}
+#times {
+    position:absolute;
+    right:100px;
+    top:30%;
+    display:none;
+    padding:20px;
+    /*background: rgba(0,0,0,.5);*/
+    background-color: orange;
+  box-shadow: 
+    2px 2px 0 red,
+    4px 4px 0 red,
+    6px 6px 0 red,
+    8px 8px 0 red;
+    border-radius:20px;
+}
+h1.threedee {
+  color: #orange;
+  text-shadow: 
+    0 2px 0 red,
+    0 4px 0 red,
+    0 6px 0 red,
+    0 8px 0 red;
+}
+a.button {
+	position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(219,87,5,1);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 3em;
+    display: block;
+    padding: 4px 30px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+    margin: 100px auto;
+	width: 160px;
+	text-align: center;
+    text-transform:uppercase; 
+	
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
+}
+
+a.button:active {
+    -webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    position: relative;
+    top: 6px;
+}
+
+.modal {
+    /*position:absolute;
+    top:20%;
+    left:22%;
+    z-index:99999;*/
+    text-align:center;
+    /*background: rgba(0,0,0,.5);
+    padding:40px;
+    border-radius:20px;*/
+}
+#signal, #actions { display:none; }
