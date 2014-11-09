@@ -118,24 +118,23 @@ user[index].on('data', function(data){
 
     else if (data[1] == 1){
       var newerDate = +new Date()
-      var rtt = (newerDate - synchronize[2]) / 2
+      var rtt = (newerDate - synchronize[2])
       data[1] = 2
       data[2] = rtt
       data[3] = +new Date()
-
-    setTimeout(function(){
-        myo_.redCountDown();
-      }, 500)
 
       for (var i = 0 ; i < 2 ; i++){
         if (user[i] != 0){
           user[i].send(data)
         }
       }
+    setTimeout(function(){
+        myo_.redCountDown();
+      }, 500)
     }
 
     else if (data[1] == 2){
-      var offset = data[3] - benchmark[0]
+      var offset = data[3] - benchmark[0] + rtt
       setTimeout(function(){
         myo_.redCountDown();
       }, 500 - offset)
