@@ -51,7 +51,6 @@ myo_ = {
 	},
 	primeMyo: function() {
 		console.log('primeMyo Function');
-		console.log('My Lives:' + s.myLives + ', Opp Lives:' + s.opponentLives)
 		s.myoUser.on('fingers_spread', function(edge){
 		    if(!edge) return;
 		    if (s.userReady[1] == false) {
@@ -142,6 +141,7 @@ myo_ = {
 				   }
 			    }
 			    if(s.myLives > 0 && s.opponentLives > 0) {
+			    	console.log('My Lives:' + s.myLives + ', Opp Lives:' + s.opponentLives)
 			    	myo_.endSequence();
 			    } else {
 					if(s.myLives > 0) console.log("you won!");
@@ -158,6 +158,7 @@ myo_ = {
 		clearInterval(s.yellowLight)
 		clearInterval(s.redLight)
 		if(s.myLives > 0 && s.opponentLives > 0) {
+			console.log('My Lives:' + s.myLives + ', Opp Lives:' + s.opponentLives)
 			s.myoUser.on('fist', function(edge) {
 				s.userPlayAgain[1] = true;
 		       	for (var i = 0 ; i < 2 ; i++){
