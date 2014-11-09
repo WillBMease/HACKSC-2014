@@ -111,7 +111,7 @@ myo_ = {
 	    s.yellowLight = setInterval(function(){
 	    	// myo_.cheated(s.yellowLight);
 	        if (j == 0) {
-	        	$('#set').text('FIRE!');
+	        	$('#set').text('DRAW!');
 	        	console.log("GO!");
 				s.greenSignal.css('background-color','green');
 				s.myoUser.off('orientation');
