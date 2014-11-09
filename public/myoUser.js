@@ -11,7 +11,7 @@ myo_ = {
 		myoActive: false,
 		drawTime: [3],
 		userReady: [1, false],
-		opponentReady: false,
+		opponentReady: true,
 		gameover: false,
 		countdown: 5,
 		done: false,
