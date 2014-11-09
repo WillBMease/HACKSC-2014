@@ -75,12 +75,13 @@ myo_ = {
 		//console.log('countDown Function');
 		//var i = s.countdown;
 		var i = 1;
-	    s.redLight = setInterval(function(){
+	    // s.redLight = 
+	    setTimeout(function(){
 	    	s.redSignal.css('background-color','red');
 	    	myo_.cheated(s.redLight);
 	        if (i == 0) {
 				s.yellowSignal.css('background-color','yellow');
-				clearInterval(s.redLight);
+				// clearInterval(s.redLight);
 				myo_.yellowCountDown();
 	        }
 	        else console.log( 'Countdown: ' + (i--) );
@@ -96,12 +97,14 @@ myo_ = {
 				s.greenSignal.css('background-color','green');
 				s.myoUser.off('orientation');
 				myo_.startGame();
+				console.log('yellow')
 				clearInterval(s.yellowLight);
 	        }
 	        else console.log( 'Countdown: ' + (j--) );
 	    }, 1000);
 	},
 	startGame: function() {
+		// clearInterval(s.yellowLight);
 		console.log('startGame Function');
 		var s1 = new Date();
 		var startTime = s1.getTime();
