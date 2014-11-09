@@ -65,7 +65,7 @@ myo_ = {
 	    		}
 			    if (s.opponentReady == true) {
 			    	console.log("I'm Ready 2nd");
-			    	myo_.redCountDown();
+			    	// myo_.redCountDown();
 			    }
 			}
 		});
@@ -87,6 +87,7 @@ myo_ = {
 	    }, 1000);
 	},
 	yellowCountDown: function() {
+		console.log('new yellowcountdown')
 		// var j = Math.floor((Math.random() * 4) + 1);;
 		var j = s.random
 	    s.yellowLight = setInterval(function(){
@@ -124,7 +125,7 @@ myo_ = {
 	    			}
 	    		}
 	    		if(s.oppFired == true){
-			      if (s.drawTime < s.opponentTime) {
+			      if (s.drawTime[1] < s.opponentTime) {
 			        console.log("YOU WIN!")
 			      }
 			      else {

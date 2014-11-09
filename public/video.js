@@ -40,14 +40,11 @@ $(function(){
 
 // Call/Video Management
 function getLocalVideo() {
-  navigator.getUserMedia({audio: true, video: true}, function(stream){
+  navigator.getUserMedia({audio: false, video: true}, function(stream){
 
     console.log("Local video streaming");
     $('#videos').append("<video id='" + peer.id + "' autoplay muted:'false' volume:'0'></video>");
     $('#' + peer.id).prop('src', URL.createObjectURL(stream));
-   
-stream.getAudioTracks()[0].enabled = false
-
 
     $(document).keydown(function(e){
       if (e.which == 32){
@@ -91,6 +88,7 @@ function processCall(call) {
   // Wait for stream on the call, then set peer video display
   call.on('stream', function(remoteStream){
     console.log("Adding video from " + call.peer);
+    $('#videos').empty()
     $('#videos').append("<video id='" + call.peer + "' autoplay>");
     $('#' + call.peer).prop('src', URL.createObjectURL(remoteStream));
   });
