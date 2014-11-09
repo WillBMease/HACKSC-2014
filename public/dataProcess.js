@@ -33,19 +33,18 @@ user[index].on('data', function(data){
     else if (data[1] == 1){     // receive ping back and calculate latency
       var newDate = +new Date();
       var latency = newDate - data[2];
-      var color;
-        if (latency <= 25)
-          color = 'green'
-        else if (latency <= 40)
-          color = 'yellow'
-        else if (latency <= 60)
-          color = 'orange'
-        else
-          color = 'red'
+      // var color;
+      //   if (latency <= 25)
+      //     color = 'green'
+      //   else if (latency <= 40)
+      //     color = 'yellow'
+      //   else if (latency <= 60)
+      //     color = 'orange'
+      //   else
+      //     color = 'red'
           
-          console.log(latency)
-          $('#messages').empty()
-          $('#messages').css('color', color).text('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms")       
+      //     $('#messages').empty()
+      //     $('#messages').css('color', color).text('<br>Now chatting with ' + user[index].peer + ": " + latency + "ms")       
     }
   }
 
