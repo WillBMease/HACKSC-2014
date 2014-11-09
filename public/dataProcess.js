@@ -7,7 +7,7 @@ function dataProcess(index, c){
   
         user[index] = c 
         myo_.primeMyo(); 
-        callPeer()
+        // callPeer()
 
 
 user[index].on('data', function(data){
@@ -72,17 +72,17 @@ user[index].on('data', function(data){
     s.oppFired = true;
     s.opponentTime = data[1];
     console.log('draw time of opponent: ' + data[1]);
-    if(s.userFired == true) {
-      if (s.drawTime[1] < s.opponentTime) {
-        console.log("Good job!")
-        --s.opponentLives;
-      }
-      else {
-        console.log("You lost a life!")
-        --s.myLives;
-      }
-      // myo_.endSequence();
-    }
+    // if(s.userFired == true) {
+    //   if (s.drawTime[1] < s.opponentTime) {
+    //     console.log("Good job!")
+    //     // --s.opponentLives;
+    //   }
+    //   else {
+    //     console.log("You lost a life!")
+    //     // --s.myLives;
+    //   }
+    //   // myo_.endSequence();
+    // }
   }
 
   else if (data[0] == 4) { //userPlayAgain[]
