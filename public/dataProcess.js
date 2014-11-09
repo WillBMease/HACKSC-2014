@@ -79,7 +79,7 @@ user[index].on('data', function(data){
     s.opponentTime = data[1];
     console.log('draw time of opponent: ' + data[1]);
     if(s.userFired == true) {
-      if (s.drawTime < s.opponentTime) {
+      if (s.drawTime[1] < s.opponentTime) {
         console.log("YOU WIN!")
       }
       else {

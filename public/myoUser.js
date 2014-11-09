@@ -125,7 +125,7 @@ myo_ = {
 	    			}
 	    		}
 	    		if(s.oppFired == true){
-			      if (s.drawTime < s.opponentTime) {
+			      if (s.drawTime[1] < s.opponentTime) {
 			        console.log("YOU WIN!")
 			      }
 			      else {
