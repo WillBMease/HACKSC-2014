@@ -14,9 +14,11 @@
 // }
 
 // var databaseUrl = "mongodb://localhost:27017/test"; // "username:password@example.com/mydb"
-var databaseUrl = "mongodb://104.40.4.198:27017/test";
-var collections = ["test"]
-var db = mongodb.connect(databaseUrl, collections);
+// var databaseUrl = "mongodb://104.40.4.198:27017/test";
+// var collections = ["test"]
+// var db = require("mongojs").connect(databaseUrl, collections);
+
+var main = require('../app')
 
 // db.test.save({user: "Will", type: "user"}, function(err, saved) {
 //   if( err || !saved ) console.log("User not saved");
@@ -28,9 +30,9 @@ var db = mongodb.connect(databaseUrl, collections);
 //   else console.log("User saved");
 // });
 
-db.test.find({user: "Will"}, function(err, users) {
-  if( err || !users) console.log("No female users found");
-  else users.forEach( function(femaleUser) {
-    console.log(femaleUser);
-  } );
-});
+// db.test.find({user: "Will"}, function(err, users) {
+//   if( err || !users) console.log("No female users found");
+//   else users.forEach( function(femaleUser) {
+//     console.log(femaleUser);
+//   } );
+// });
