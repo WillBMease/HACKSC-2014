@@ -110,7 +110,7 @@ myo_ = {
 	    			}
 	    		}
 	    		s.myoUser.off('orientation');
-	    		// myo_.endSequence();
+	    		myo_.endSequence();
 		    }
 		});
 	},
