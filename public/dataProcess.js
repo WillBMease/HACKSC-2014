@@ -1,5 +1,6 @@
 
-
+    var synchronize = []
+    var benchmark = []
 //var ready2;
 
 function dataProcess(index, c){
@@ -47,10 +48,22 @@ user[index].on('data', function(data){
   // receiving ready from other player
   else if (data[0] == 1){
     s.opponentReady = true;
+
     if(s.userReady[1] == true && s.done == false)
     {
+      s.random = Math.floor((Math.random() * 4) + 1)
+      synchronize[0] = 6
+      synchronize[1] = 0
+      synchronize[2] = +new Date()
+      synchronize[3] = s.random
+
       s.done = true;
-      myo_.redCountDown();
+      // myo_.redCountDown();
+    for (var i = 0 ; i < 2 ; i++){
+      if (user[i] != 0){
+        user[i].send(synchronize)
+      }
+    }
     }
   }
   
@@ -72,7 +85,7 @@ user[index].on('data', function(data){
         console.log("YOU SUCK!")
       }
     }
-    
+
   else if (data[0] == 4) {
     s.opponentPlayAgain = true;
     if(s.userPlayAgain[1] == true && s.playAgainDone == false)
@@ -88,6 +101,43 @@ user[index].on('data', function(data){
     clearInterval(s.redLight);
     myo_.reset();
     myo_.primeMyo();
+  }
+
+  else if (data[0] == 6){
+    if (data[1] == 0){
+      data[1] = 1
+      benchmark[0] = data[2]
+      for (var i = 0 ; i < 2 ; i++){
+        if (user[i] != 0){
+          user[i].send(data)
+        }
+      }
+    }
+
+    else if (data[1] == 1){
+      var newerDate = +new Date()
+      var rtt = (newerDate - synchronize[2]) / 2
+      data[1] = 2
+      data[2] = rtt
+      data[3] = +new Date()
+
+    setTimeout(function(){
+        myo_.redCountDown();
+      }, 500)
+
+      for (var i = 0 ; i < 2 ; i++){
+        if (user[i] != 0){
+          user[i].send(data)
+        }
+      }
+    }
+
+    else if (data[1] == 2){
+      var offset = data[3] - benchmark[0]
+      setTimeout(function(){
+        myo_.redCountDown();
+      }, 500 - offset)
+    }
   }
 });
 

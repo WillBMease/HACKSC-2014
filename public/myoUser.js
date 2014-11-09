@@ -3,6 +3,7 @@
  */
 
 var s,
+// random = 0,
 myo_ = {
 	//Global Variables for our Myo Users
 	globals: {
@@ -27,7 +28,8 @@ myo_ = {
 		yellowLight: 0,
 		redLight: 0,
 		userFired: false,
-		oppFired: false
+		oppFired: false,
+		random: 0
 	},
 	init: function() {
 		//init function
@@ -54,6 +56,7 @@ myo_ = {
 			    console.log("Gun Loaded!");
 			    playSound('shotgunload')
 			    s.userReady[1] = true;
+			    // s.userReady[2] = +new Date()
 			    // send s.user.userReady Array to Data Process
 			    for (var i = 0 ; i < 2 ; i++){
 	    			if (user[i] != 0){
@@ -84,7 +87,7 @@ myo_ = {
 	    }, 1000);
 	},
 	yellowCountDown: function() {
-		var j = Math.floor((Math.random() * 4) + 1);;
+		// var j = Math.floor((Math.random() * 4) + 1);;
 	    s.yellowLight = setInterval(function(){
 	    	myo_.cheated(s.yellowLight);
 	        if (j == 0) {
