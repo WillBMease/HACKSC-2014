@@ -79,6 +79,12 @@ user[index].on('data', function(data){
       myo_.endSequence();
     }
   }
+  else if (data[0] == 5) {
+    clearInterval(s.yellowLight);
+    clearInterval(s.redLight);
+    myo_.reset();
+    myo_.primeMyo();
+  }
 });
 
 user[index].on('close', function(err){ 

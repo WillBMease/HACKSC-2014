@@ -7,7 +7,8 @@ myo_ = {
 	//Global Variables for our Myo Users
 	globals: {
 		myoUser: Myo.create(),
-		threshHold: 0.3,
+		threshHold: 0.4,
+		cheatThreshold: 0.1,
 		myoActive: false,
 		drawTime: [3],
 		userReady: [1, false],
@@ -22,6 +23,10 @@ myo_ = {
 		opponentPlayAgain: false,
 		userPlayAgain: [4, false],
 		playAgainDone: false,
+		cheatPlayAgain: [5, false],
+		opponentCheatPlayAgain: false,
+		yellowLight: 0,
+		redLight: 0,
 	},
 	init: function() {
 		//init function
@@ -59,11 +64,12 @@ myo_ = {
 		//console.log('countDown Function');
 		//var i = s.countdown;
 		var i = 1;
-	    var redLight = setInterval(function(){
+	    s.redLight = setInterval(function(){
 	    	s.redSignal.css('background-color','red');
+	    	myo_.cheated(s.redLight);
 	        if (i == 0) {
 				s.yellowSignal.css('background-color','yellow');
-				clearInterval(redLight);
+				clearInterval(s.redLight);
 				myo_.yellowCountDown();
 	        }
 	        else console.log( 'Countdown: ' + (i--) );
@@ -71,12 +77,14 @@ myo_ = {
 	},
 	yellowCountDown: function() {
 		var j = Math.floor((Math.random() * 4) + 1);;
-	    var yellowLight = setInterval(function(){
+	    s.yellowLight = setInterval(function(){
+	    	myo_.cheated(s.yellowLight);
 	        if (j == 0) {
 	        	console.log("GO!");
 				s.greenSignal.css('background-color','green');
+				s.myoUser.off('orientation');
 				myo_.startGame();
-				clearInterval(yellowLight);
+				clearInterval(s.yellowLight);
 	        }
 	        else console.log( 'Countdown: ' + (j--) );
 	    }, 1000);
@@ -123,9 +131,31 @@ myo_ = {
 		    }
 		});
 	},
+	cheated: function(light) {
+
+		s.myoUser.on('orientation', function(data) {
+			var hypot = Math.sqrt(data.x * data.x + data.y * data.y + data.z * data.z);
+			if (hypot > s.cheatThreshold && s.gameover == false) {
+				clearInterval(light);
+				console.log('Cheater! Position: ' + hypot);
+				s.myoUser.off('orientation');
+				myo_.reset();
+				s.cheatPlayAgain[1] = true;
+				s.cheatPlayAgain[2] = light;
+
+			    for (var i = 0 ; i < 2 ; i++){
+	    			if (user[i] != 0){
+	    				user[i].send(s.cheatPlayAgain)
+	    			}
+	    		}
+				myo_.primeMyo();
+			}
+		});
+	},
 	reset: function() {
 		s.drawTime[1] = 0;
 		s.userReady[1] = false;
+		s.cheatPlayAgain[1] = false;
 		s.opponentReady = false;
 		s.gameover = false;
 		s.countdown = 5;
