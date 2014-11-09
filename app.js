@@ -57,7 +57,7 @@ db.test.save({user: "Jeremy", type: "user"}, function(err, saved) {
   else console.log("User saved");
 });
 
-db.test.find({type: "user"}, function(err, users) {
+db.test.find({user: "Will"}, function(err, users) {
   if( err || !users) console.log("No female users found");
   else users.forEach( function(femaleUser) {
     console.log(femaleUser);
