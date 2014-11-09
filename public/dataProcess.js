@@ -122,6 +122,7 @@ user[index].on('data', function(data){
       data[1] = 2
       data[2] = rtt
       data[3] = +new Date()
+      console.log('rtt: ' + rtt)
 
       for (var i = 0 ; i < 2 ; i++){
         if (user[i] != 0){
@@ -135,6 +136,7 @@ user[index].on('data', function(data){
 
     else if (data[1] == 2){
       var offset = data[3] - benchmark[0] + rtt
+      console.log('offset: ' + offset)
       setTimeout(function(){
         myo_.redCountDown();
       }, 500 - offset)
