@@ -1,7 +1,7 @@
 /*
  * Main user module for Myo.js
  */
-
+var movect = 0
 var s,
 // random = 0,
 myo_ = {
@@ -46,6 +46,12 @@ myo_ = {
 		   // myo_.debugAll();
 		s.myoUser.on('connected', function(){
     		console.log('Connected! Myo: ', this.id);
+
+    	s.myoUser.on('gyroscope', function(data){
+    		movect++
+    		if (movect % 3 == 0)
+			moveCircle(data.z, data.y)
+		});
     		// myo_.primeMyo();
     	});
 	},
