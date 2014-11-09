@@ -13,6 +13,7 @@ var averagecount = 0;
   
         user[index] = c 
         myo_.primeMyo(); 
+        callPeer()
 
           // Receive the incoming message and play it calling midi function
             
