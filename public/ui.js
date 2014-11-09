@@ -14,10 +14,10 @@ $(document).ready(function(){
                   myo_.primeMyo(); 
                 $('.threedee').hide();
                 $('#times').show();
+                $('#videos').show();
             }, 1000);
         }, 1000);
     });
-
 });
 
 

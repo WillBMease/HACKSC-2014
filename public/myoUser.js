@@ -179,6 +179,7 @@ myo_ = {
 		console.log("Make a fist to play again!");
 		clearInterval(s.yellowLight);
 		clearInterval(s.redLight);
+		setTimeout(100);
 		if (s.opponentTime == -1) { // opponent lost; you won
 			--s.opponentLives;
 			console.log("You survived");
@@ -207,10 +208,10 @@ myo_ = {
 		} else {
 			if(s.myLives > 0) {
 				console.log("you won!");
-				$('#set').text('YOU WON!');
+				$('#set').text('GUNSLINGER CHAMPION!');
 			} else {
 				console.log("you lost!");
-				$('#set').text('YOU LOSE!');
+				$('#set').text('YOU\'RE DEAD!');
 			}
 		}
 		

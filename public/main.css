@@ -23,6 +23,7 @@ video { width: 100%; }
     display:none;
 }
 #videos {
+    display:none;
     height:480px;
     width:640px;
     position:absolute;
@@ -38,6 +39,21 @@ video { width: 100%; }
     position:absolute;
     right:100px;
     top:30%;
+    display:none;
+    padding:20px;
+    /*background: rgba(0,0,0,.5);*/
+    background-color: orange;
+  box-shadow: 
+    2px 2px 0 red,
+    4px 4px 0 red,
+    6px 6px 0 red,
+    8px 8px 0 red;
+    border-radius:20px;
+}
+#health {
+    position:absolute;
+    right:100px;
+    top:70%;
     display:none;
     padding:20px;
     /*background: rgba(0,0,0,.5);*/
