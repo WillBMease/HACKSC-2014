@@ -83,6 +83,7 @@ myo_ = {
 		//change this function to display on screen
 		//console.log('countDown Function');
 		//var i = s.countdown;
+		$('#set').show();
 		$('#set').text('GET READY!');
 		var i = 1;
 	    s.redLight = setInterval(function(){
