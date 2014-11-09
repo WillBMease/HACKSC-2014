@@ -43,26 +43,26 @@ process.on('uncaughtException', function (err) {
 // var mongoose = require('mongoose');
 // mongoose.connect('mongodb://localhost:27017/mydb');
 
-// var databaseUrl = "mongodb://localhost:27017/mydb"; // "username:password@example.com/mydb"
-// var collections = ["testData"]
-// var db = require("mongojs").connect(databaseUrl, collections);
+var databaseUrl = "mongodb://localhost:27017/mydb"; // "username:password@example.com/mydb"
+var collections = ["testData"]
+var db = require("mongojs").connect(databaseUrl, collections);
 
-// db.testData.find({type: "user"}, function(err, users) {
-//   if( err || !users) console.log("No female users found");
-//   else users.forEach( function(femaleUser) {
-//     console.log(femaleUser);
-//   } );
-// });
+db.testData.save({user: "Will", type: "user"}, function(err, saved) {
+  if( err || !saved ) console.log("User not saved");
+  else console.log("User saved");
+});
 
-// db.testData.save({user: "Will", type: "user"}, function(err, saved) {
-//   if( err || !saved ) console.log("User not saved");
-//   else console.log("User saved");
-// });
+db.testData.save({user: "Jeremy", type: "user"}, function(err, saved) {
+  if( err || !saved ) console.log("User not saved");
+  else console.log("User saved");
+});
 
-// db.testData.save({user: "Jeremy", type: "user"}, function(err, saved) {
-//   if( err || !saved ) console.log("User not saved");
-//   else console.log("User saved");
-// });
+db.testData.find({type: "user"}, function(err, users) {
+  if( err || !users) console.log("No female users found");
+  else users.forEach( function(femaleUser) {
+    console.log(femaleUser);
+  } );
+});
 
 // var MongoClient = require('mongodb').MongoClient
 //   , assert = require('assert');
