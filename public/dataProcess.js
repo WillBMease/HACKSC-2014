@@ -131,9 +131,9 @@ user[index].on('data', function(data){
           user[i].send(data)
         }
       }
-    // setTimeout(function(){
+    setTimeout(function(){
         myo_.redCountDown();
-      // }, 500)
+      }, 500)
     }
 
     else if (data[1] == 2){
@@ -142,9 +142,9 @@ user[index].on('data', function(data){
       var offset = data[3] - benchmark[0]
       offset += data[2]
       console.log('offset: ' + offset)
-      // setTimeout(function(){
+      setTimeout(function(){
         myo_.redCountDown();
-      // }, 500 - offset)
+      }, 500 - offset)
     }
   }
 });
