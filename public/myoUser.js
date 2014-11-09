@@ -127,6 +127,7 @@ myo_ = {
 		    	var e1 = new Date();
 		    	var endTime = e1.getTime();
 		    	s.drawTime[1] = endTime - startTime;
+		    	$('#yourTimeSeconds').text(s.drawTime[1]);
 		    	console.log('Position: ' + hypot);
 		        console.log('BANG!');
 		        playSound('gunshot')
@@ -174,9 +175,11 @@ myo_ = {
 		if (s.opponentTime == -1) { // opponent lost; you won
 			--s.opponentLives;
 			console.log("You survived");
+			$('#set').text('YOU SURVIVED!');
 		} else {
 			--s.myLives;
-			console.log("You lost a life")
+			console.log("You lost a life");
+			$('#set').text('YOU LOST A LIFE!');
 		}
 		console.log('My Lives:' + s.myLives + ', Opp Lives:' + s.opponentLives)
 		if(s.myLives > 0 && s.opponentLives > 0) {

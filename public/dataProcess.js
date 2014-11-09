@@ -77,6 +77,7 @@ user[index].on('data', function(data){
     s.receivedTime = true;
     s.oppFired = true;
     s.opponentTime = data[1];
+    $('#oppTimeSeconds').text(data[1]);
     console.log('draw time of opponent: ' + data[1]);
     // if(s.userFired == true) {
     //   if (s.drawTime[1] < s.opponentTime) {
