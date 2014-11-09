@@ -1,5 +1,5 @@
 var user = [] 
-var userLimit = 4
+var userLimit = 2
 
 for (var i = 0 ; i < userLimit ; i++) {
       user[i] = 0
@@ -52,7 +52,7 @@ function connect(c) {
    $('#chat_area').show();
    var makeNew = true
 
-for (var i = 0 ; i < userLimit ; i++)
+for (var i = 1 ; i < userLimit ; i++)
 {
   if (user[i] != 0) {
     if (user[i].peer == c.peer)

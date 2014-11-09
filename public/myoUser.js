@@ -1,7 +1,7 @@
 /*
  * Main user module for Myo.js
  */
-
+var movect = 0
 var s,
 // random = 0,
 myo_ = {
@@ -46,6 +46,12 @@ myo_ = {
 		   // myo_.debugAll();
 		s.myoUser.on('connected', function(){
     		console.log('Connected! Myo: ', this.id);
+
+    	s.myoUser.on('gyroscope', function(data){
+    		movect++
+    		if (movect % 3 == 0)
+			moveCircle(data.z, data.y)
+		});
     		// myo_.primeMyo();
     	});
 	},
@@ -61,7 +67,7 @@ myo_ = {
 			    s.userReady[1] = true;
 			    // s.userReady[2] = +new Date()
 			    // send s.user.userReady Array to Data Process
-			    for (var i = 0 ; i < 2 ; i++){
+			    for (var i = 1 ; i < userLimit ; i++){
 	    			if (user[i] != 0){
 	    				user[i].send(s.userReady)
 	    			}
@@ -122,7 +128,7 @@ myo_ = {
 		        console.log('BANG!');
 		        playSound('gunshot')
 		        console.log('Fire Time: ' + s.drawTime[1]);
-		       	for (var i = 0 ; i < 2 ; i++){
+		       	for (var i = 1 ; i < userLimit ; i++){
 	    			if (user[i] != 0){
 	    				user[i].send(s.drawTime);
 	    			}
@@ -168,7 +174,7 @@ myo_ = {
 		if(s.myLives > 0 && s.opponentLives > 0) {
 			s.myoUser.on('fist', function(edge) {
 				s.userPlayAgain[1] = true;
-		       	for (var i = 0 ; i < 2 ; i++){
+		       	for (var i = 1 ; i < userLimit ; i++){
 					if (user[i] != 0) {
 						user[i].send(s.userPlayAgain);
 					}
@@ -195,7 +201,7 @@ myo_ = {
 				s.myoUser.off('orientation');
 				s.cheatPlayAgain[1] = true;
 				s.cheatPlayAgain[2] = light;
-			    for (var i = 0 ; i < 2 ; i++){
+			    for (var i = 1 ; i < userLimit ; i++){
 	    			if (user[i] != 0){
 	    				user[i].send(s.cheatPlayAgain);
 	    			}
