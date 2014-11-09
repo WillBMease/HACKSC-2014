@@ -52,6 +52,7 @@ myo_ = {
 			    s.myoUser.vibrate();
 			    s.myoUser.zeroOrientation();
 			    console.log("Gun Loaded!");
+			    playSound('shotgunload')
 			    s.userReady[1] = true;
 			    // send s.user.userReady Array to Data Process
 			    for (var i = 0 ; i < 2 ; i++){
@@ -117,7 +118,7 @@ myo_ = {
 	    				user[i].send(s.drawTime);
 	    			}
 	    		}
-	    		if(oppFired == true){
+	    		if(s.oppFired == true){
 			      if (s.drawTime < s.opponentTime) {
 			        console.log("YOU WIN!")
 			      }
