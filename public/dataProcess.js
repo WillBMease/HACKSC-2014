@@ -78,13 +78,15 @@ user[index].on('data', function(data){
     s.oppFired = true;
     s.opponentTime = data[1];
     console.log('draw time of opponent: ' + data[1]);
-    if(s.userFired == true)
+    if(s.userFired == true) {
       if (s.drawTime < s.opponentTime) {
         console.log("YOU WIN!")
       }
       else {
         console.log("YOU SUCK!")
       }
+      myo_.endSequence();
+    }
     }
 
   else if (data[0] == 4) {

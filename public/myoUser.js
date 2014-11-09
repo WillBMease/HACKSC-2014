@@ -131,9 +131,10 @@ myo_ = {
 			      else {
 			        console.log("YOU SUCK!")
 			      }
+			      myo_.endSequence();
 			    }
 	    		s.myoUser.off('orientation');
-	    		myo_.endSequence();
+	    		
 		    }
 		});
 	},
