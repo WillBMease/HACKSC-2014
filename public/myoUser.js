@@ -52,7 +52,14 @@ myo_ = {
     		if (movect > 30 && movect % 3 == 0)
 				moveCircle(data.z, data.y)
 		});
-    		// myo_.primeMyo();
+
+		s.myoUser.on('fist', function(edge) {
+			if (xcss > 700 && xcss < 800){
+				if (ycss > 300 && ycss < 400){
+					console.log('target play button!')
+				}
+			}
+    		});
     	});
 	},
 	primeMyo: function() {
