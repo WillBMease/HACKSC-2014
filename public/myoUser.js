@@ -31,8 +31,8 @@ myo_ = {
 	init: function() {
 		//init function
 		s = this.globals;
-		console.log('here')
-		   myo_.debugAll();
+		// console.log('here')
+		   // myo_.debugAll();
 		s.myoUser.on('connected', function(){
     		console.log('Connected! Myo: ', this.id);
     		// myo_.primeMyo();
