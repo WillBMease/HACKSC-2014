@@ -35,6 +35,13 @@ video { width: 100%; }
 .myVideo {
     display:none;
 }
+.container {
+    height:40px;
+
+}
+.container img {
+    height:40px;
+}
 #times {
     position:absolute;
     right:100px;
@@ -51,6 +58,7 @@ video { width: 100%; }
     border-radius:20px;
 }
 #health {
+    min-width:285px;
     position:absolute;
     right:100px;
     top:70%;

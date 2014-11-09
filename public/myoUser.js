@@ -183,10 +183,12 @@ myo_ = {
 		if (s.opponentTime == -1) { // opponent lost; you won
 			--s.opponentLives;
 			console.log("You survived");
+			$('#yourHealthContainer img').last().remove();
 			$('#set').text('YOU SURVIVED!');
 		} else {
 			--s.myLives;
 			console.log("You lost a life");
+			$('#oppHealthContainer img').last().remove();
 			$('#set').text('YOU LOST A LIFE!');
 		}
 		console.log('My Lives:' + s.myLives + ', Opp Lives:' + s.opponentLives)

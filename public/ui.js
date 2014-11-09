@@ -15,6 +15,7 @@ $(document).ready(function(){
                 $('.threedee').hide();
                 $('#times').show();
                 $('#videos').show();
+                $('#health').show();
             }, 1000);
         }, 1000);
     });
