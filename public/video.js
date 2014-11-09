@@ -43,8 +43,8 @@ function getLocalVideo() {
   navigator.getUserMedia({audio: false, video: true}, function(stream){
 
     console.log("Local video streaming");
-    $('#videos').append("<video id='" + peer.id + "' autoplay muted:'false' volume:'0'></video>");
-    $('#' + peer.id).prop('src', URL.createObjectURL(stream));
+    // $('#videos').append("<video id='" + peer.id + "' autoplay muted:'false' volume:'0'></video>");
+    // $('#' + peer.id).prop('src', URL.createObjectURL(stream));
 
     $(document).keydown(function(e){
       if (e.which == 32){
