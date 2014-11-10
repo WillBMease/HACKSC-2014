@@ -8,7 +8,7 @@ $(document).ready(function(){
        $('.modal').append('<img height="200" src="img/sunny.svg" class="loader">');
        killIntro()
        playSound('ricochet')
-       s.myoUser.off('fist')
+       // s.myoUser.off('fist')
        setTimeout(function(){
             $('.threedee').text('Opponent Found!').css('font-size','80px');
             $('.loader').hide();
