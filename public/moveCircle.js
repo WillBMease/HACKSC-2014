@@ -16,7 +16,7 @@ function moveCircle(x, y){
 		xcss = 1050
 	}
 	if (ycss >= 0 && ycss <= 500){
-		ycss += (y*1.5)*(-1)
+		ycss += (y*1.5)
 	}
 	else if (ycss < 0){
 		ycss = 0
