@@ -53,10 +53,10 @@ myo_ = {
 				moveCircle(data.z, data.y)
 		});
 
-		s.myoUser.on('fist', function() {
-				$('.playButton').trigger('click');
-    		});
-    	});
+		// s.myoUser.on('fist', function() {
+		// 		$('.playButton').trigger('click');
+  //   		});
+  //   	});
 	},
 	primeMyo: function() {
 		console.log('primeMyo Function');
