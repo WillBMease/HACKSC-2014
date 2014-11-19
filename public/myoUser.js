@@ -3,7 +3,16 @@
  */
 var movect = 0
 var s,
-moveCircle(0, 0)
+// moveCircle(0, 0)
+			$('.full-circle').css('left', xcss)
+			$('.full-circle').css('top', ycss)
+			$('#canvasVertical').css('left', xcss)
+			$('#canvasVertical').css('top', ycss)
+			$('#canvasHorizontal').css('left', xcss)
+			$('#canvasHorizontal').css('top', ycss)
+			clearRect()
+			rectVert()
+			rectHor()
 // random = 0,
 myo_ = {
 	//Global Variables for our Myo Users
