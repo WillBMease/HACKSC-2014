@@ -62,3 +62,38 @@ drawhor.clearRect(0, 0, 160, 180);
 }
 
 
+
+
+// Detect if the browser is IE or not.
+// If it is not IE, we assume that the browser is NS.
+var IE = document.all?true:false
+
+// If NS -- that is, !IE -- then set up for mouse capture
+if (!IE) document.captureEvents(Event.MOUSEMOVE)
+
+// Set-up to use getMouseXY function onMouseMove
+document.onmousemove = getMouseXY;
+
+// Temporary variables to hold mouse x-y pos.s
+var tempX = 0
+var tempY = 0
+
+// Main function to retrieve mouse x-y pos.s
+
+function getMouseXY(e) {
+    xcss = e.pageX
+    ycss = e.pageY
+
+			$('.full-circle').css('left', xcss)
+			$('.full-circle').css('top', ycss)
+			$('#canvasVertical').css('left', xcss)
+			$('#canvasVertical').css('top', ycss)
+			$('#canvasHorizontal').css('left', xcss)
+			$('#canvasHorizontal').css('top', ycss)
+			clearRect()
+			rectVert()
+			rectHor()
+
+}
+
+

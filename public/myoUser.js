@@ -3,6 +3,7 @@
  */
 var movect = 0
 var s,
+moveCircle(0, 0)
 // random = 0,
 myo_ = {
 	//Global Variables for our Myo Users
