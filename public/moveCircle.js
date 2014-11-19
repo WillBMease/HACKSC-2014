@@ -96,4 +96,5 @@ function getMouseXY(e) {
 
 }
 
+moveCircle(0, 0)
 
