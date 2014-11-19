@@ -82,7 +82,7 @@ var tempY = 0
 
 function getMouseXY(e) {
     xcss = e.pageX + 40
-    ycss = e.pageY + 40
+    ycss = e.pageY - 140
 
 			$('.full-circle').css('left', xcss)
 			$('.full-circle').css('top', ycss)
