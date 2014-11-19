@@ -212,7 +212,7 @@
 
 	Myo = {
 		options : {
-			api_version : 1.0.3,
+			api_version : 1,
 			socket_url  : "ws://127.0.0.1:10138/myo/"
 			// socket_url  : "ws://54.213.132.53:10138/myo/"
 			// socket_url  : "ws://54.213.132.53:8888/myo/"
