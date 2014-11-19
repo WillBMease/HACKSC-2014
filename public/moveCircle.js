@@ -81,7 +81,7 @@ var tempY = 0
 // Main function to retrieve mouse x-y pos.s
 
 function getMouseXY(e) {
-    xcss = e.pageX - 93
+    xcss = e.pageX - 85
     ycss = e.pageY - 100
 
 			$('.full-circle').css('left', xcss)
