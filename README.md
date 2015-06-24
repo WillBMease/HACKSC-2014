@@ -7,7 +7,7 @@ Tech
 ====
 Node.js
 WebRTC
-Web Audio
+WebAudio
 Myo
 MongoDB
 jQuery
