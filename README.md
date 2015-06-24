@@ -24,6 +24,9 @@ Instructions to Run
 ====
 
 sudo npm install
+
 node app.js
+
+go to localhost:8888 in browser
 
 
