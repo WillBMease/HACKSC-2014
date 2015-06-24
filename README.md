@@ -6,6 +6,8 @@ http://challengepost.com/software/gunslinger
 Tech
 ====
 Node.js
+WebRTC
+Web Audio
 Myo
 MongoDB
 jQuery
