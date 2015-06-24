@@ -18,4 +18,10 @@ Evan
 Ryan
 Will
 
+Instructions to Run
+====
+
+sudo npm install
+node app.js
+
 
